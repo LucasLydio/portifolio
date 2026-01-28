@@ -1,0 +1,214 @@
+/* Header (modular) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: var(--p-sm) 0;
+
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--clr-bg) 78%, transparent);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.site-header__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--p-md);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--p-md);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.brand__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--clr-primary);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--clr-primary) 20%, transparent);
+}
+
+.brand__text {
+  color: color-mix(in srgb, var(--clr-text-main) 92%, var(--clr-primary));
+}
+
+/* Desktop nav */
+.nav--desktop {
+  display: none;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+
+  font-weight: 800;
+  color: color-mix(in srgb, var(--clr-text-main) 80%, var(--clr-primary));
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav__link i {
+  font-size: 1.05rem;
+  color: var(--clr-primary);
+}
+
+.nav__link:hover {
+  background: var(--clr-bg-alt);
+  transform: translateY(-1px);
+}
+
+.nav__sep {
+  width: 1px;
+  height: 26px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 0 0.35rem;
+}
+
+.nav__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+
+  display: grid;
+  place-items: center;
+
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  color: color-mix(in srgb, var(--clr-primary) 70%, var(--clr-primary));
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.nav__icon i {
+  font-size: 1.15rem;
+  color: color-mix(in srgb, var(--clr-primary) 70%, var(--clr-primary));
+}
+
+.nav__icon:hover {
+  background: var(--clr-bg-alt);
+  transform: translateY(-1px);
+}
+
+/* Mobile actions */
+.nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+
+  display: grid;
+  place-items: center;
+
+  background: color-mix(in srgb, var(--clr-surface) 78%, transparent);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
+  color: color-mix(in srgb, var(--clr-primary) 70%, var(--clr-primary));
+
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+
+.icon-btn i {
+  font-size: 1.25rem;
+  color: color-mix(in srgb, var(--clr-primary) 70%, var(--clr-primary));
+}
+
+/* Mobile menu panel */
+.mobile-menu {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--p-md) var(--p-md);
+}
+
+.mobile-menu__nav {
+  margin-top: 0.6rem;
+  padding: var(--p-md);
+  border-radius: calc(var(--radius) + 6px);
+
+  background: var(--clr-surface);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-md);
+
+  display: grid;
+  gap: 0.5rem;
+}
+
+.mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  padding: 0.75rem 0.85rem;
+  border-radius: 14px;
+  font-weight: 900;
+
+  background: var(--clr-bg-alt);
+  color: color-mix(in srgb, var(--clr-text-main) 82%, var(--clr-primary));
+}
+
+.mobile-link i {
+  font-size: 1.1rem;
+  color: var(--clr-primary);
+}
+
+.mobile-menu__row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* Desktop breakpoint */
+@media (min-width: 860px) {
+  .nav--desktop {
+    display: inline-flex;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}
+
+/* Dark theme polish */
+html[data-theme="dark"] .site-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .nav__sep {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="dark"] .nav__icon,
+html[data-theme="dark"] .icon-btn,
+html[data-theme="dark"] .mobile-menu__nav {
+  border-color: rgba(255, 255, 255, 0.08);
+}

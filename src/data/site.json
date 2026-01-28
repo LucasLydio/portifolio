@@ -1,0 +1,17 @@
+{
+  "title": "Lucas Lydio — Portfolio",
+  "description": "Portfolio de desenvolvimento: projetos, skills e contato.",
+  "author": {
+    "name": "Lucas Lydio",
+    "role": "Backend / Full-stack Developer",
+    "location": "Brazil"
+  },
+  "links": {
+    "github": "https://github.com/LucasLydio",
+    "linkedin": "https://www.linkedin.com/in/ucas-lydio-8231b436b",
+    "email": "lucaslydiotelecom@gmail.com"
+  },
+  "ui": {
+    "theme": "light"
+  }
+}

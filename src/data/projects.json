@@ -1,0 +1,36 @@
+[
+  {
+    "title": "Info Tech Web",
+    "subtitle": "Fórum moderno com notícias, tópicos e comunidade",
+    "description": "Plataforma de fórum com UI moderna, feed de notícias e recursos de engajamento.",
+    "stack": ["Angular", "Node.js", "Prisma", "Postgres"],
+    "highlights": ["Auth", "CRUD", "Paginação", "UI modular"],
+    "links": {
+      "repo": "https://github.com/LucasLydio/infoTechWeb.git",
+      "live": ""
+    },
+    "image": {
+      "src": "/assets/img/projects/infoTechWeb.png",
+      "alt": "Preview do projeto Info Tech Web"
+    },
+    "status": "in-progress",
+    "featured": true
+  },
+  {
+    "title": "Forms",
+    "subtitle": "This is the frontend UI for the Forms platform",
+    "description": "This is the frontend UI for the Forms platform — a React + TypeScript app (Vite) used to build, publish, and answer forms, manage users, and collect submissions. This folder is one of the frontend implementations in this repository and is production-ready for local development and integration with the backend.",
+    "stack": ["React", "TypeScript", "Node.js", "Supabase", "Vite", "Tailwiind CSS + Shadcn/ui"],
+    "highlights": ["Create", "Publish", "Manage Forms"],
+    "links": {
+      "repo": "https://github.com/LucasLydio/forms-frontend.git",
+      "live": ""
+    },
+    "image": {
+      "src": "/assets/img/projects/forms.png",
+      "alt": "Preview of project Forms"
+    },
+    "status": "in-progress",
+    "featured": true
+  }
+]

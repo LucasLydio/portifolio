@@ -1,0 +1,65 @@
+---
+layout: null
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{{ site.title }}</title>
+    <meta name="description" content="{{ site.description }}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
+    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    {% include "header.html" %}
+
+    <main class="container">
+      <section class="hero" id="top">
+        {% include "photo.html" %}
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section__head">
+          <h2>Projetos</h2>
+          <p>Alguns projetos em destaque e experimentos que mostram meu estilo de desenvolvimento.</p>
+        </div>
+
+        <div class="grid-container">
+          {% for p in projects %}
+            {% include "project-card.html" %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section__head">
+          <h2>Sobre</h2>
+          <p>
+            Eu gosto de construir interfaces limpas, componentes reutilizáveis e backends bem modelados.
+            Meu foco é entregar projetos com consistência visual, arquitetura clara e código fácil de manter.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    {% include "footer.html" %}
+
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

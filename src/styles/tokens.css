@@ -1,0 +1,40 @@
+:root {
+  /* --- Color Palette --- */
+  --clr-bg: #f6f2e5;        /* Old Lace - Warm Neutral */
+  --clr-bg-alt: #e8f1f2;    /* Alice Blue - Cool Neutral */
+  --clr-surface: #ffffff;
+
+  --clr-text-main: #241104; /* Coffee Bean */
+  --clr-text-muted: #5a5a5a;
+
+  --border-color: #5a5a5a4b;
+
+  --clr-primary: #1e7a75;   /* Deep Ocean */
+  --clr-accent: #8d7160;    /* Faded Copper */
+
+  /* --- Spacing & Radius --- */
+  --p-xs: clamp(0.35rem, 1vw, 0.5rem);
+  --p-sm: clamp(0.5rem, 2vw, 0.75rem);
+  --p-md: clamp(1rem, 3vw, 1.5rem);
+  --p-lg: clamp(2rem, 5vw, 4rem);
+
+  --radius-sm: 10px;
+  --radius: 12px;
+  --radius-pill: 999px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 2px 4px rgba(36, 17, 4, 0.05);
+  --shadow-md: 0 10px 25px -5px rgba(36, 17, 4, 0.1);
+  --shadow-btn: 0 4px 12px rgba(30, 122, 117, 0.3);
+
+  /* --- Fluid Typography --- */
+  --fs-h1: clamp(1.5rem, 8vw, 2.5rem);
+  --fs-h2: clamp(1.2rem, 6vw, 2rem);
+  --fs-h3: clamp(1rem, 4vw, 1.7rem);
+  --fs-p: clamp(.9rem, 1.1vw, 1rem);
+  --fs-label: 0.9rem;
+
+  /* --- Breakpoints (docs only) --- */
+  --tablet: 768px;
+  --desktop: 1024px;
+}

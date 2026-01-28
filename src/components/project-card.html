@@ -1,0 +1,47 @@
+{%- comment -%} expects a "p" object in scope {%- endcomment -%}
+<article class="project card">
+  {% if p.image and p.image.src %}
+    <div class="project__media">
+      <img
+        src="{{ p.image.src }}"
+        alt="{{ p.image.alt | default: p.title }}"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  {% endif %}
+
+  <div class="project__content">
+    <div class="project__top">
+      <h3 class="project__title">{{ p.title }}</h3>
+      {% if p.status %}
+        <span class="badge badge--{{ p.status | replace: " ", "-" }}">{{ p.status }}</span>
+      {% endif %}
+    </div>
+
+    {% if p.subtitle %}
+      <p class="project__subtitle">{{ p.subtitle }}</p>
+    {% endif %}
+
+    {% if p.description %}
+      <p class="project__desc">{{ p.description }}</p>
+    {% endif %}
+
+    {% if p.stack and p.stack.size > 0 %}
+      <ul class="chips" aria-label="Stack">
+        {% for tech in p.stack %}
+          <li class="chip">{{ tech }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <div class="project__actions">
+      {% if p.links and p.links.repo %}
+        <a class="btn btn--ghost" href="{{ p.links.repo }}" target="_blank" rel="noreferrer">Repo</a>
+      {% endif %}
+      {% if p.links and p.links.live %}
+        <a class="btn" href="{{ p.links.live }}" target="_blank" rel="noreferrer">Live</a>
+      {% endif %}
+    </div>
+  </div>
+</article>

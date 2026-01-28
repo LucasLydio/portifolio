@@ -1,0 +1,47 @@
+/* Dark theme overrides
+   Uses the same design system tokens, only changing values when html[data-theme="dark"] is active.
+*/
+
+html[data-theme="dark"] {
+  /* Surfaces */
+  --clr-bg: #0f1416;
+  --clr-bg-alt: #151d20;
+  --clr-surface: #12191c;
+
+  /* Text */
+  --clr-text-main: #eef3f4;
+  --clr-text-muted: #b7c3c6;
+
+  --border-color: #eeecec23;
+
+  /* Brand */
+  --clr-primary: #3bb5ae; /* same vibe as your teal, but brighter for contrast */
+  --clr-accent: #c79f87;  /* warm accent */
+
+  /* Shadows (softer in dark mode) */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --shadow-btn: 0 10px 22px rgba(59, 181, 174, 0.22);
+}
+
+/* Optional: small component-level tweaks for dark theme */
+html[data-theme="dark"] .card {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+html[data-theme="dark"] .site-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, var(--clr-bg) 78%, transparent);
+}
+
+html[data-theme="dark"] .btn--ghost {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+html[data-theme="dark"] .chip {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .badge {
+  border-color: rgba(255, 255, 255, 0.08);
+}

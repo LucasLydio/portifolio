@@ -1,0 +1,94 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="/" aria-label="Home">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <span class="brand__text">{{ site.title }}</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="nav nav--desktop" aria-label="Primary">
+      <a class="nav__link" href="#projects">
+        <i class="bi bi-code-slash" aria-hidden="true"></i>
+        <span>Projetos</span>
+      </a>
+      <a class="nav__link" href="#about">
+        <i class="bi bi-person" aria-hidden="true"></i>
+        <span>Sobre</span>
+      </a>
+      <a class="nav__link" href="#contact">
+        <i class="bi bi-chat" aria-hidden="true"></i>
+        <span>Contato</span>
+      </a>
+
+      <div class="nav__sep" aria-hidden="true"></div>
+
+      {% if site.links.github %}
+        <a class="nav__icon" href="{{ site.links.github }}" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <i class="bi bi-github" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+
+      {% if site.links.linkedin %}
+        <a class="nav__icon" href="{{ site.links.linkedin }}" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <i class="bi bi-linkedin" aria-hidden="true"></i>
+        </a>
+      {% endif %}
+
+      <!-- Theme toggle -->
+      <button class="nav__icon" id="themeToggle" type="button" aria-label="Alternar tema">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i>
+      </button>
+    </nav>
+
+    <!-- Mobile buttons -->
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggleMobile" type="button" aria-label="Alternar tema">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i>
+      </button>
+
+      <button
+        class="icon-btn icon-btn--menu"
+        id="menuToggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+        <i class="bi bi-list" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu panel -->
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <nav class="mobile-menu__nav" aria-label="Mobile Primary">
+      <a class="mobile-link" href="#projects">
+        <i class="bi bi-code-slash" aria-hidden="true"></i>
+        <span>Projetos</span>
+      </a>
+      <a class="mobile-link" href="#about">
+        <i class="bi bi-person" aria-hidden="true"></i>
+        <span>Sobre</span>
+      </a>
+      <a class="mobile-link" href="#contact">
+        <i class="bi bi-chat" aria-hidden="true"></i>
+        <span>Contato</span>
+      </a>
+
+      <div class="mobile-menu__row">
+        {% if site.links.github %}
+          <a class="btn btn--ghost" href="{{ site.links.github }}" target="_blank" rel="noreferrer">
+            <i class="bi bi-github" aria-hidden="true"></i>
+            GitHub
+          </a>
+        {% endif %}
+        {% if site.links.linkedin %}
+          <a class="btn btn--ghost" href="{{ site.links.linkedin }}" target="_blank" rel="noreferrer">
+            <i class="bi bi-linkedin" aria-hidden="true"></i>
+            LinkedIn
+          </a>
+        {% endif %}
+      </div>
+    </nav>
+  </div>
+</header>

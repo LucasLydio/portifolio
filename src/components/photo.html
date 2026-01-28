@@ -1,0 +1,38 @@
+<section class="photo" id="photo" aria-label="Foto e stack">
+  <div class="photo__inner">
+    <div class="photo__frame">
+      <!-- Troque o src pelo nome real do seu arquivo -->
+      <img
+        class="photo__img"
+        src="/assets/img/selfie2.jpeg"
+        alt="Foto de Lucas Lydio"
+        loading="lazy"
+        decoding="async"
+      />
+
+      <!-- Floating icons (Devicon) -->
+      <span class="float-icon pos-1" aria-hidden="true"><i class="devicon-angularjs-plain"></i></span>
+      <span class="float-icon pos-2" aria-hidden="true"><i class="devicon-react-original"></i></span>
+      <span class="float-icon pos-3" aria-hidden="true"><i class="devicon-nodejs-plain"></i></span>
+      <span class="float-icon pos-4" aria-hidden="true"><i class="devicon-typescript-plain"></i></span>
+      <span class="float-icon pos-5" aria-hidden="true"><i class="devicon-postgresql-plain"></i></span>
+      <span class="float-icon pos-6" aria-hidden="true"><i class="devicon-docker-plain"></i></span>
+      <span class="float-icon pos-7" aria-hidden="true"><i class="devicon-git-plain"></i></span>
+      <span class="float-icon pos-8" aria-hidden="true"><i class="devicon-javascript-plain"></i></span>
+    </div>
+
+    <div class="photo__copy card">
+      <h2>Olá, eu sou {{ site.author.name }}</h2>
+      <p>
+        {{ site.author.role }} — foco em interfaces limpas, performance e arquitetura modular.
+      </p>
+
+      <div class="photo__cta">
+        <a class="btn" href="#projects">Ver projetos</a>
+        {% if site.links.linkedin %}
+          <a class="btn btn--ghost" href="{{ site.links.linkedin }}" target="_blank" rel="noreferrer">LinkedIn</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

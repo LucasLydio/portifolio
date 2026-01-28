@@ -1,17 +1,17 @@
 [
-  {
+{
     "title": "Info Tech Web",
-    "subtitle": "Fórum moderno com notícias, tópicos e comunidade",
-    "description": "Plataforma de fórum com UI moderna, feed de notícias e recursos de engajamento.",
+    "subtitle": "A modern forum for news, discussion topics, and community engagement",
+    "description": "A high-performance forum platform featuring a sleek UI, real-time news feed, and robust community interaction tools.",
     "stack": ["Angular", "Node.js", "Prisma", "Postgres"],
-    "highlights": ["Auth", "CRUD", "Paginação", "UI modular"],
+    "highlights": ["Secure Auth", "CRUD Operations", "Dynamic Pagination", "Modular UI Components"],
     "links": {
       "repo": "https://github.com/LucasLydio/infoTechWeb.git",
       "live": ""
     },
     "image": {
-      "src": "/assets/img/projects/infoTechWeb.png",
-      "alt": "Preview do projeto Info Tech Web"
+      "src": "/assets/img/projects/infoTechWeb.PNG",
+      "alt": "Project preview for Info Tech Web"
     },
     "status": "in-progress",
     "featured": true
@@ -27,7 +27,7 @@
       "live": ""
     },
     "image": {
-      "src": "/assets/img/projects/forms.png",
+      "src": "/assets/img/projects/forms.PNG",
       "alt": "Preview of project Forms"
     },
     "status": "in-progress",

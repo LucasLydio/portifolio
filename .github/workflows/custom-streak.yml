@@ -1,0 +1,56 @@
+name: Generate custom streak SVG
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # daily at 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate SVG
+        run: |
+          mkdir -p generated
+          python3 - << 'PY'
+          from datetime import datetime, timezone
+          # Simple custom "streak" demo (you control this)
+          # Replace the number with your own logic later.
+          streak_days = 7
+          updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+          svg = f'''<svg xmlns="http://www.w3.org/2000/svg" width="720" height="140" viewBox="0 0 720 140">
+            <defs>
+              <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#006c70"/>
+                <stop offset="100%" stop-color="#f4b313"/>
+              </linearGradient>
+              <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                <feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity="0.25"/>
+              </filter>
+            </defs>
+
+            <rect x="20" y="20" rx="18" ry="18" width="680" height="100" fill="url(#g)" filter="url(#shadow)"/>
+            <text x="50" y="70" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-size="28" fill="#fff" font-weight="700">
+              Custom Streak: {streak_days} days 🔥
+            </text>
+            <text x="50" y="100" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto" font-size="14" fill="rgba(255,255,255,0.9)">
+              Updated: {updated}
+            </text>
+          </svg>'''
+          open("generated/streak.svg","w",encoding="utf-8").write(svg)
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add generated/streak.svg
+          git commit -m "chore: update custom streak svg" || exit 0
+          git push

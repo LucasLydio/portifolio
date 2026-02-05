@@ -1,95 +1,146 @@
+<!-- =======================================================
+  LucasLydio • GitHub Profile README (Backend-focused)
+  - Uses Markdown + lightweight HTML for layout
+  - Icons from Devicon (https://devicon.dev/)
+  - Replace: YOUR_LINKEDIN, YOUR_PORTFOLIO, YOUR_EMAIL
+======================================================= -->
+
 <div align="center">
-  <h1>🌟 Portfolio</h1>
-  <p><em>A modern, responsive personal portfolio to showcase your projects, experience, and skills.</em></p>
+
+  <h1>Lucas Lydio 👋</h1>
+  <p>
+    <b>Backend-focused Developer</b> • Node.js + TypeScript • Building reliable APIs & clean architectures
+  </p>
+
+  <p>
+    <a href="https://lucaslydio-portfolio.netlify.app/">
+      <img alt="Portfolio" src="https://img.shields.io/badge/Portfolio-071108?style=for-the-badge&logo=vercel&logoColor=white" />
+    </a>
+    <a href="https://www.linkedin.com/in/lucas-lydio-8231b436b/">
+      <img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-364652?style=for-the-badge&logo=linkedin&logoColor=white" />
+    </a>
+    <a href="mailto:lucaslydiotelecom@gmail.com">
+      <img alt="Email" src="https://img.shields.io/badge/Email-BFB1C1?style=for-the-badge&logo=gmail&logoColor=071108" />
+    </a>
+  </p>
+
+  <p>
+    <img alt="Focus" src="https://img.shields.io/badge/Focus-Backend%20%26%20APIs-364652?style=flat&logo=node.js&logoColor=white" />
+    <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-First-364652?style=flat&logo=typescript&logoColor=white" />
+    <img alt="Architecture" src="https://img.shields.io/badge/Architecture-Clean%20%7C%20Modular-BFB1C1?style=flat&logo=code&logoColor=071108" />
+  </p>
+
 </div>
 
 ---
 
-## 📂 Project Structure
+## 🧠 About me
 
-```text
-portfolio/
-│
-├── .eleventy.js         # Eleventy configuration (if applicable)
-├── .env                 # Environment variables
-├── .env.example         # Template for environment variables
-├── .gitignore           # Files and folders ignored by Git
-├── script.py            # Auxiliary Python script (optional)
-├── netlify.toml         # Netlify deployment configuration
-├── package.json         # Project dependencies and scripts
-├── README.md            # This file
-│
-├── .github/             # GitHub actions and workflows
-├── .netlify/            # Internal Netlify files
-├── netlify/             # Serverless functions and Netlify utilities
-│   └── functions/       # Custom serverless functions
-│
-├── src/                 # Source code
-│   ├── index.html       # Main entry point
-│   ├── assets/          # Images, icons, and static assets
-│   ├── components/      # Reusable HTML components
-│   ├── data/            # JSON files for dynamic content
-│   ├── pages/           # Additional site pages
-│   ├── scripts/         # JavaScript files
-│   │   ├── main.js      # Primary script
-│   │   └── modules/     # Modularized JS logic
-│   └── styles/          # CSS Stylesheets
-│       ├── base.css     # Global reset and base styles
-│       ├── components.css # Component-specific styling
-│       ├── index.css    # Homepage styles
-│       ├── tokens.css   # Design tokens (Variables)
-│       └── ...          # Additional style modules
-│
-└── ...                  # Other auxiliary files
-```
+- Backend-first mindset: **clean services**, **typed contracts**, **secure auth**, **scalable APIs**
+- I ship full-stack when needed, but my sweet spot is **Node.js + TypeScript** (Prisma, Redis, JWT, Postgres/Supabase)
+- I care about: **DX**, **observability**, **performance**, and **simple maintainable code**
 
 ---
 
-## 🚀 Local Development
+## 🧰 Most used technologies
 
-To get this project running on your local machine:
+<div align="center">
 
-1. **Prerequisites:**
-  - Node.js (v16+ recommended)
-  - npm (comes bundled with Node.js)
+<!-- Core -->
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
 
-2. **Install dependencies:**
-  ```bash
-  npm install
-  ```
+<br/>
 
-3. **Run in development mode:**
-  ```bash
-  npx netlify dev
-  ```
-  or
-  ```bash
-  npm run dev
-  ```
-  The site will be available at [http://localhost:8888](http://localhost:8888).
+<!-- Web / Front (when needed) -->
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" />
+<img height="42" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" />
 
-4. **Production build:**
-  ```bash
-  npm run build
-  ```
-  This generates an optimized version of the site ready for deployment.
+</div>
 
----
-
-## ☁️ Deployment
-
-Deployments are handled automatically via [Netlify](https://www.netlify.com/). Every push to the main repository triggers a build and deploy process, guided by the `netlify.toml` configuration.
-
----
-
-## 🎨 Customization
-
-- **Content:** Edit the JSON files in `src/data/` to update project details and personal info.
-- **UI Components:** Modify or add new reusable elements in `src/components/`.
-- **Design:** Adjust colors, typography, and spacing in `src/styles/tokens.css`.
+<p align="center">
+  <sub>
+    Also: JWT auth • REST APIs • shadcn/ui • Tailwind • Dockerized environments • Redis caching
+  </sub>
+</p>
 
 ---
 
-## 📄 License
+## ⭐ Featured projects
 
-This project is intended for personal use but may serve as a foundation or inspiration for other portfolio projects.
+<div align="center">
+
+<table>
+  <tr>
+    <td width="50%">
+      <h3>🧩 Forms (Full Stack)</h3>
+      <p>
+        React (TSX) + Vite • Node.js + TypeScript • Typed forms & submissions flow
+      </p>
+      <p>
+        <a href="https://github.com/LucasLydio/forms-frontend.git"><b>Repository</b></a> •
+        <a href="#"><b>Live</b></a>
+      </p>
+      <p>
+        <sub>Highlights: auth, validations, clean API contracts, modular services</sub>
+      </p>
+    </td>
+    <td width="50%">
+      <h3>🟩 Info Tech Web (Full Stack)</h3>
+      <p>
+        Angular • Node.js • Platform-style app with clean modules & services
+      </p>
+      <p>
+        <a href="https://github.com/LucasLydio/infoTechWeb.git"><b>Repository</b></a> •
+        <a href="#"><b>Live</b></a>
+      </p>
+      <p>
+        <sub>Highlights: scalable structure, feature modules, REST patterns</sub>
+      </p>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+---
+
+## ✅ Backend principles I follow
+
+- **Type-safe flows** (DTOs, typed responses, consistent error handling)
+- **Clean architecture** (controllers → services → data layer)
+- **Security first** (JWT/session strategies, validation, rate-limit ready)
+- **Performance** (pagination, caching with Redis, good indexes)
+- **DX** (scripts, env examples, Docker, predictable setup)
+
+---
+
+## 📈 GitHub stats
+
+<p align="center">
+  <img src="./generated/streak.svg" alt="My custom streak" />
+</p>
+
+---
+
+## 🤝 Contact
+
+- Portfolio: **https://lucaslydio-portifolio.netlify.app/**
+- LinkedIn: **https://www.linkedin.com/in/lucas-lydio-8231b436b/**
+- Email: **lucaslydiotelecom@gmail.com**
+
+<div align="center">
+  <sub>Backend-first • clean APIs • strong typing • consistent delivery</sub>
+</div>

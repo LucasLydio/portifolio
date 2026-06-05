@@ -1,6 +1,7 @@
 {%- comment -%} expects a "p" object in scope {%- endcomment -%}
-<article class="project card">
+<div class="project">
   {% if p.image and p.image.src %}
+  <button class="view-img" title="view image" onclick="openOverlay('{{ p.image.src }}', '{{ p.image.alt | default: p.title }}')">
     <div class="project__media">
       <img
         src="{{ p.image.src }}"
@@ -9,13 +10,14 @@
         decoding="async"
       />
     </div>
+  </button>
   {% endif %}
 
   <div class="project__content">
     <div class="project__top">
       <h3 class="project__title">{{ p.title }}</h3>
       {% if p.status %}
-        <span class="badge badge--{{ p.status | replace: " ", "-" }}">{{ p.status }}</span>
+        <span class="badge badge--{{ p.status | replace: ' ', '-' }}">{{ p.status }}</span>
       {% endif %}
     </div>
 
@@ -44,4 +46,33 @@
       {% endif %}
     </div>
   </div>
-</article>
+</div>
+
+<div id="imageOverlay" class="overlay" onclick="closeOverlay()">
+    <span class="close-overlay">&times;</span>
+    <div class="overlay-img" onclick="event.stopPropagation()">
+      <img id="overlayImg" src="" alt="" />
+    </div>
+</div>
+
+<script>
+  function openOverlay(src, alt) {
+    const overlay = document.getElementById('imageOverlay');
+    const overlayImg = document.getElementById('overlayImg');
+    
+    overlayImg.src = src;
+    overlayImg.alt = alt;
+    overlay.classList.add('active');
+    
+    // Prevents the background page from scrolling while viewing the image
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeOverlay() {
+    const overlay = document.getElementById('imageOverlay');
+    overlay.classList.remove('active');
+    
+    // Restores scrolling
+    document.body.style.overflow = ''; 
+}
+</script>

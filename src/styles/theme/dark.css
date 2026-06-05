@@ -4,7 +4,7 @@
 
 html[data-theme="dark"] {
   /* Surfaces */
-  --clr-bg: #0f1416;
+  --clr-bg: #222d31;
   --clr-bg-alt: #151d20;
   --clr-surface: #12191c;
 
@@ -15,7 +15,7 @@ html[data-theme="dark"] {
   --border-color: #eeecec23;
 
   /* Brand */
-  --clr-primary: #3bb5ae; /* same vibe as your teal, but brighter for contrast */
+  --clr-primary: #3ec5be; /* same vibe as your teal, but brighter for contrast */
   --clr-accent: #c79f87;  /* warm accent */
 
   /* Shadows (softer in dark mode) */

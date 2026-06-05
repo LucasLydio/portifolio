@@ -4,5 +4,7 @@
 @import url("./footer/footer.css");
 @import url("./header/header.css");
 @import url("./photo/photo.css");
+@import url("./project/project.css");
+@import url("./typing/typing.css");
 
 @import url("./theme/dark.css");

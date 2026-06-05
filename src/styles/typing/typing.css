@@ -1,0 +1,42 @@
+.typing-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem .4rem;
+  transform: translateY(10px);
+}
+
+.typing-container {
+  display: inline-block;
+}
+
+.typing-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid var(--clr-primary); 
+  
+  animation: 
+    typing 4s steps(47) infinite alternate,
+    blink 0.75s step-end infinite;
+}
+
+/* The typing animation effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* The blinking cursor effect */
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--clr-primary); }
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 600px) {
+  .typing-text {
+    font-size: 1rem;
+  }
+}

@@ -1,6 +1,6 @@
 :root {
   /* --- Color Palette --- */
-  --clr-bg: #f6f2e5;        /* Old Lace - Warm Neutral */
+  --clr-bg: #f6f2e5cb;        /* Old Lace - Warm Neutral */
   --clr-bg-alt: #e8f1f2;    /* Alice Blue - Cool Neutral */
   --clr-surface: #ffffff;
 

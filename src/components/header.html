@@ -7,6 +7,21 @@
 
     <!-- Desktop nav -->
     <nav class="nav nav--desktop" aria-label="Primary">
+        <!-- Language -->
+      <div class="lang">
+        <!-- this hidden container is required for google widget -->
+        <div id="google_translate_element" class="g-translate" aria-hidden="true"></div>
+
+        <button class="nav__icon lang__btn" type="button" aria-label="Change language" aria-haspopup="true" aria-expanded="false">
+          <i class="bi bi-translate" aria-hidden="true"></i>
+        </button>
+
+        <div class="lang__menu" role="menu">
+          <button type="button" class="lang__item" data-lang="pt">PT</button>
+          <button type="button" class="lang__item" data-lang="en">EN</button>
+          <button type="button" class="lang__item" data-lang="en|en">US</button>
+        </div>
+      </div>
       <a class="nav__link" href="#projects">
         <i class="bi bi-code-slash" aria-hidden="true"></i>
         <span>Projects</span>
@@ -45,6 +60,8 @@
       <button class="icon-btn" id="themeToggleMobile" type="button" aria-label="Alternar tema">
         <i class="bi bi-moon-stars" aria-hidden="true"></i>
       </button>
+
+      
 
       <button
         class="icon-btn icon-btn--menu"
@@ -92,3 +109,74 @@
     </nav>
   </div>
 </header>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'pt',            // your original language
+        includedLanguages: 'pt,en',    // allowed languages
+        autoDisplay: false
+      },
+      'google_translate_element'
+    );
+
+    // optional: also init for mobile container (same config)
+    new google.translate.TranslateElement(
+      {
+        pageLanguage: 'pt',
+        includedLanguages: 'pt,en',
+        autoDisplay: false
+      },
+      'google_translate_element_mobile'
+    );
+  }
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  function setLanguage(lang) {
+    // Google creates a hidden <select class="goog-te-combo">
+    const combo = document.querySelector('.goog-te-combo');
+    if (!combo) return;
+
+    combo.value = lang;
+    combo.dispatchEvent(new Event('change'));
+  }
+
+  function setupLangDropdown(root) {
+    const btn = root.querySelector('.lang__btn');
+    const menu = root.querySelector('.lang__menu');
+
+    const toggle = () => {
+      const open = menu.classList.toggle('is-open');
+      btn?.setAttribute('aria-expanded', String(open));
+    };
+
+    btn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggle();
+    });
+
+    root.querySelectorAll('.lang__item').forEach((item) => {
+      item.addEventListener('click', () => {
+        const lang = item.getAttribute('data-lang');
+        if (lang) setLanguage(lang === 'en|en' ? 'en' : lang); // keep "US" as label, translate as "en"
+        menu.classList.remove('is-open');
+        btn?.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // close on outside click
+    document.addEventListener('click', (e) => {
+      if (!root.contains(e.target)) {
+        menu.classList.remove('is-open');
+        btn?.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.lang').forEach(setupLangDropdown);
+  });
+</script>

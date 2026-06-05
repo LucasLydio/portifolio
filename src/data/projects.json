@@ -1,34 +1,17 @@
 [
 {
-    "title": "Info Tech Web",
-    "subtitle": "A modern forum for news, discussion topics, and community engagement",
-    "description": "A high-performance forum platform featuring a sleek UI, real-time news feed, and robust community interaction tools.",
-    "stack": ["Angular", "Node.js", "Prisma", "Postgres"],
-    "highlights": ["Secure Auth", "CRUD Operations", "Dynamic Pagination", "Modular UI Components"],
+    "title": "Management Tasks",
+    "subtitle": "A clean way to organize tasks",
+    "description": "A high-performance platform featuring a sleek UI, real-time tasks and shared workspace.",
+    "stack": ["Angular", "Node.js", "Prisma", "SQL", "TypeScript", "Docker", "Bootstrap"],
+    "highlights": ["Secure Auth and Oauth", "Socket Real-Time Operations", "Dynamic Pagination", "Modular UI Components"],
     "links": {
-      "repo": "https://github.com/LucasLydio/infoTechWeb.git",
+      "repo": "https://github.com/LucasLydio/management-platform.git",
       "live": ""
     },
     "image": {
-      "src": "/assets/img/projects/infoTechWeb.PNG",
-      "alt": "Project preview for Info Tech Web"
-    },
-    "status": "in-progress",
-    "featured": true
-  },
-  {
-    "title": "Forms",
-    "subtitle": "This is the frontend UI for the Forms platform",
-    "description": "This is the frontend UI for the Forms platform — a React + TypeScript app (Vite) used to build, publish, and answer forms, manage users, and collect submissions. This folder is one of the frontend implementations in this repository and is production-ready for local development and integration with the backend.",
-    "stack": ["React", "TypeScript", "Node.js", "Supabase", "Vite", "Tailwiind CSS + Shadcn/ui"],
-    "highlights": ["Create", "Publish", "Manage Forms"],
-    "links": {
-      "repo": "https://github.com/LucasLydio/forms-frontend.git",
-      "live": ""
-    },
-    "image": {
-      "src": "/assets/img/projects/forms.PNG",
-      "alt": "Preview of project Forms"
+      "src": "/assets/img/projects/management_tasks.PNG",
+      "alt": "Tasks"
     },
     "status": "in-progress",
     "featured": true

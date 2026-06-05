@@ -38,3 +38,33 @@
   --tablet: 768px;
   --desktop: 1024px;
 }
+
+/* 1) Hide the banner iframe (the top bar lives here) */
+iframe.goog-te-banner-frame,
+.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  width: 0 !important;
+  border: 0 !important;
+}
+
+/* 2) Google sometimes pushes the body down */
+html, body {
+  top: 0 !important;
+  position: static !important;
+}
+
+/* 3) Hide tooltip + bubble UI */
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+
+/* 4) Remove the highlight that can mess layout */
+.goog-text-highlight {
+  background: transparent !important;
+  box-shadow: none !important;
+}

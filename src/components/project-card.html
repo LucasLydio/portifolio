@@ -15,10 +15,10 @@
 
   <div class="project__content">
     <div class="project__top">
-      <h3 class="project__title">{{ p.title }}</h3>
       {% if p.status %}
         <span class="badge badge--{{ p.status | replace: ' ', '-' }}">{{ p.status }}</span>
       {% endif %}
+      <h3 class="project__title">{{ p.title }}</h3>
     </div>
 
     {% if p.subtitle %}

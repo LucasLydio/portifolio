@@ -20,7 +20,7 @@ html[data-theme="dark"] {
 
   /* Shadows (softer in dark mode) */
   --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
-  --shadow-md: 0 18px 40px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 4px 25px rgba(0, 0, 0, 0.577);
   --shadow-btn: 0 10px 22px rgba(59, 181, 174, 0.22);
 }
 

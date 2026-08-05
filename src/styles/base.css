@@ -12,7 +12,8 @@ html {
 body {
   background-color: var(--clr-bg);
   color: var(--clr-text-main);
-  font-family: "Delius", cursive;
+  font-family: "Delius", cursive, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
   line-height: 1.6;
   padding: var(--p-md);
 }

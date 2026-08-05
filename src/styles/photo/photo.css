@@ -3,20 +3,15 @@
 }
 
 .photo__inner {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--p-md);
   align-items: center;
-}
-
-@media (min-width: 900px) {
-  .photo__inner {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--p-lg);
-  }
+  justify-content: space-around;
 }
 
 .photo__frame {
-    max-width: 500px;
+  max-width: 500px;
   position: relative;
   padding: var(--p-md);
   border-radius: calc(var(--radius) + 8px);
@@ -72,7 +67,9 @@
 
 /* Copy */
 .photo__copy {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
   gap: 0.75rem;
 }
 

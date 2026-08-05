@@ -1,50 +1,95 @@
-/* --- Footer --- */
 .site-footer {
-  padding: var(--p-lg) 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  margin-top: var(--p-lg);
+  padding-block: 4.5rem 2rem;
+  border-top: 1px solid var(--border-color);
+  background: var(--clr-surface);
 }
 
 .site-footer__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--p-md);
-
-  display: grid;
-  gap: var(--p-md);
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
 }
 
-@media (min-width: 768px) {
-  .site-footer__inner {
-    grid-template-columns: 1.2fr 0.8fr;
-    align-items: start;
-  }
+.site-footer__heading h2 {
+  max-width: 15ch;
 }
 
-.site-footer__title {
-  margin-bottom: 0.35rem;
-}
-
-.site-footer__actions {
+.site-footer__contact {
   display: flex;
-  gap: 0.75rem;
   flex-wrap: wrap;
-  margin-top: 0.75rem;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  padding-block: 1.5rem;
+  border-block: 1px solid var(--border-color);
 }
 
-.site-footer__meta {
-  color: var(--clr-text-muted);
+.footer-email {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  color: var(--clr-signal);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
-.site-footer__links {
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
+.copy-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 40px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--clr-text-main);
+  font-size: 0.76rem;
+  font-weight: 800;
+  cursor: pointer;
 }
 
-.site-footer__links a {
-  color: var(--clr-primary);
+.copy-email:hover {
+  border-color: var(--clr-signal);
+}
+
+.site-footer__bottom {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.5rem;
+}
+
+.site-footer__bottom p {
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.site-footer__bottom nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer__bottom a {
+  color: var(--clr-text-main);
+  font-size: 0.76rem;
   font-weight: 800;
+}
+
+.site-footer__bottom a:hover {
+  color: var(--clr-signal);
+}
+
+@media (min-width: 700px) {
+  .site-footer {
+    padding-top: 7rem;
+  }
+
+  .footer-email {
+    font-size: 2rem;
+  }
+
+  .site-footer__bottom {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
 }

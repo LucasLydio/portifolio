@@ -1,36 +1,24 @@
 <footer class="site-footer" id="contact">
   <div class="site-footer__inner">
-    <div class="site-footer__left">
-      <h3 class="site-footer__title">Let's Talk</h3>
-      <p class="site-footer__text">
-        If you liked my projects and want to exchange ideas about opportunities, get in touch.
-      </p>
-
-      <div class="site-footer__actions">
-        {% if site.links.email %}
-          <a class="btn" href="mailto:{{ site.links.email }}">Send e-mail</a>
-        {% endif %}
-        {% if site.links.linkedin %}
-          <a class="btn btn--ghost" href="{{ site.links.linkedin }}" target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-        {% endif %}
-      </div>
+    <div class="site-footer__heading reveal">
+      <span class="section__eyebrow">Contact</span>
+      <h2>Good systems start with a clear conversation.</h2>
     </div>
 
-    <div class="site-footer__right">
-      <p class="site-footer__meta">
-        © {{ "now" | date: "%Y" }} {{ site.author.name }} • {{ site.author.role }}
-      </p>
+    <div class="site-footer__contact reveal">
+      <a class="footer-email" href="mailto:{{ site.links.email }}">{{ site.links.email }}</a>
+      <button class="copy-email" type="button" data-copy-email="{{ site.links.email }}" aria-label="Copy email address">
+        <i class="bi bi-copy" aria-hidden="true"></i>
+        <span>Copy</span>
+      </button>
+    </div>
 
-      <div class="site-footer__links">
-        {% if site.links.github %}
-          <a href="{{ site.links.github }}" target="_blank" rel="noreferrer">GitHub</a>
-        {% endif %}
-        {% if site.links.linkedin %}
-          <a href="{{ site.links.linkedin }}" target="_blank" rel="noreferrer">LinkedIn</a>
-        {% endif %}
-      </div>
+    <div class="site-footer__bottom">
+      <p>{{ site.author.name }} / {{ site.author.role }}</p>
+      <nav aria-label="Social links">
+        <a href="{{ site.links.github }}" target="_blank" rel="noreferrer">GitHub <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+        <a href="{{ site.links.linkedin }}" target="_blank" rel="noreferrer">LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+      </nav>
     </div>
   </div>
 </footer>

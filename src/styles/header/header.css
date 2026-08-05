@@ -1,261 +1,139 @@
-/* Header (modular) */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
-  padding: var(--p-sm) 0;
-
-  backdrop-filter: blur(12px);
-  background: color-mix(in srgb, var(--clr-bg) 78%, transparent);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  z-index: 30;
+  border-bottom: 1px solid var(--border-color);
+  background: color-mix(in srgb, var(--clr-bg) 90%, transparent);
+  backdrop-filter: blur(16px);
 }
 
 .site-header__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--p-md);
-
   display: flex;
+  width: min(100%, 1240px);
+  min-height: 66px;
   align-items: center;
   justify-content: space-between;
-  gap: var(--p-md);
+  gap: 1rem;
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
 }
 
 .brand {
   display: inline-flex;
+  min-width: 0;
   align-items: center;
-  gap: 0.65rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  gap: 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 800;
 }
 
-.brand__dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: var(--clr-primary);
-  box-shadow: 0 0 0 6px color-mix(in srgb, var(--clr-primary) 20%, transparent);
+.brand__mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  background: var(--clr-signal);
+  color: var(--clr-signal-ink);
+  font-size: 0.72rem;
 }
 
 .brand__text {
-  color: color-mix(in srgb, var(--clr-text-main) 92%, var(--clr-primary));
+  overflow: hidden;
+  color: var(--clr-text-main);
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Desktop nav */
 .nav--desktop {
   display: none;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.15rem;
 }
 
 .nav__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-
-  padding: 0.55rem 0.75rem;
-  border-radius: 12px;
-
+  padding: 0.6rem 0.7rem;
+  color: var(--clr-text-muted);
+  font-size: 0.76rem;
   font-weight: 800;
-  color: color-mix(in srgb, var(--clr-text-main) 80%, var(--clr-primary));
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.nav__link i {
-  font-size: 1.05rem;
-  color: var(--clr-primary);
 }
 
 .nav__link:hover {
-  background: var(--clr-bg-alt);
-  transform: translateY(-1px);
+  color: var(--clr-signal);
 }
 
-.nav__sep {
-  width: 1px;
-  height: 26px;
-  background: rgba(0, 0, 0, 0.1);
-  margin: 0 0.35rem;
-}
-
-.nav__icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-
-  display: grid;
-  place-items: center;
-
-  background: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  cursor: pointer;
-  color: color-mix(in srgb, var(--clr-primary) 70%, var(--clr-primary));
-
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.nav__icon i {
-  font-size: 1.15rem;
-  color: color-mix(in srgb, var(--clr-primary) 70%, var(--clr-primary));
-}
-
-.nav__icon:hover {
-  background: var(--clr-bg-alt);
-  transform: translateY(-1px);
-}
-
-/* Mobile actions */
-.nav-actions {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
+.nav__icon,
 .icon-btn {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-
   display: grid;
+  width: 40px;
+  height: 40px;
   place-items: center;
-
-  background: color-mix(in srgb, var(--clr-surface) 78%, transparent);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: var(--shadow-sm);
-  color: color-mix(in srgb, var(--clr-primary) 70%, var(--clr-primary));
-
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--clr-text-main);
   cursor: pointer;
-  transition: filter 0.2s ease, transform 0.2s ease;
 }
 
+.nav__icon:hover,
 .icon-btn:hover {
-  filter: brightness(1.05);
-  transform: translateY(-1px);
+  border-color: var(--clr-signal);
+  color: var(--clr-signal);
 }
 
-.icon-btn i {
-  font-size: 1.25rem;
-  color: color-mix(in srgb, var(--clr-primary) 70%, var(--clr-primary));
+.nav-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.45rem;
 }
 
-/* Mobile menu panel */
 .mobile-menu {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--p-md) var(--p-md);
+  width: min(100%, 1240px);
+  margin-inline: auto;
+  padding: 0 var(--page-gutter) 1rem;
 }
 
 .mobile-menu__nav {
-  margin-top: 0.6rem;
-  padding: var(--p-md);
-  border-radius: calc(var(--radius) + 6px);
-
-  background: var(--clr-surface);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: var(--shadow-md);
-
   display: grid;
-  gap: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--clr-surface);
 }
 
 .mobile-link {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--clr-text-main);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.mobile-link:hover {
+  color: var(--clr-signal);
+}
+
+.mobile-menu__socials {
   display: flex;
-  align-items: center;
-  gap: 0.65rem;
-
-  padding: 0.75rem 0.85rem;
-  border-radius: 14px;
-  font-weight: 900;
-
-  background: var(--clr-bg-alt);
-  color: color-mix(in srgb, var(--clr-text-main) 82%, var(--clr-primary));
+  gap: 0.5rem;
+  padding: 0.75rem;
 }
 
-.mobile-link i {
-  font-size: 1.1rem;
-  color: var(--clr-primary);
+.mobile-menu__socials a {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
 }
 
-.mobile-menu__row {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
-}
-
-/* Desktop breakpoint */
-@media (min-width: 860px) {
+@media (min-width: 880px) {
   .nav--desktop {
-    display: inline-flex;
+    display: flex;
   }
 
-  .nav-actions {
-    display: none;
-  }
-
+  .nav-actions,
   .mobile-menu {
     display: none;
   }
-}
-
-/* Dark theme polish */
-html[data-theme="dark"] .site-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-html[data-theme="dark"] .nav__sep {
-  background: rgba(255, 255, 255, 0.12);
-}
-
-html[data-theme="dark"] .nav__icon,
-html[data-theme="dark"] .icon-btn,
-html[data-theme="dark"] .mobile-menu__nav {
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-/* hides the google widget UI, keeps it functional */
-.g-translate {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-.lang {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.lang__menu {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  min-width: 140px;
-  padding: 8px;
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  background: var(--clr-bg);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 10px 30px var(--shadow-md);
-  display: none;
-  z-index: 50;
-}
-
-.lang__menu.is-open { display: grid; gap: 6px; }
-
-.lang__item {
-  width: 100%;
-  text-align: left;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 0;
-  cursor: pointer;
-  background: var(--clr-surface);
-  color: inherit;
-}
-
-.lang__item:hover {
-  background: var(--clr-bg-alt);
 }

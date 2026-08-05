@@ -1,11 +1,7 @@
 const KEY = "portfolio:theme";
 
-/**
- * For now we only store the preference.
- * Later you can add a real dark theme by toggling a class on <html>.
- */
-export function getTheme() {
-  return localStorage.getItem(KEY) || "light";
+export function getTheme(fallback = "dark") {
+  return localStorage.getItem(KEY) || fallback;
 }
 
 export function setTheme(theme) {
@@ -14,16 +10,12 @@ export function setTheme(theme) {
 }
 
 export function applyTheme(theme) {
-  // Class hook for future: html[data-theme="dark"]
   document.documentElement.setAttribute("data-theme", theme);
 }
 
-/**
- * Safe init. Doesn't break if localStorage is blocked.
- */
-export function initTheme(defaultTheme = "light") {
+export function initTheme(defaultTheme = "dark") {
   try {
-    const t = getTheme() || defaultTheme;
+    const t = getTheme(defaultTheme);
     applyTheme(t);
   } catch {
     applyTheme(defaultTheme);

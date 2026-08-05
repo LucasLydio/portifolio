@@ -1,85 +1,69 @@
 import { initTheme, getTheme, setTheme } from "./modules/theme.js";
+import { initProjectOverlay } from "./modules/projectOverlay.js";
+import { initRevealAnimations } from "./modules/reveal.js";
+import { initInterestCarousel } from "./modules/interestCarousel.js";
+import { initExperienceField } from "./modules/experienceField.js";
+import { initCopyEmail } from "./modules/copyEmail.js";
 
-function setToggleIcon(btn, theme) {
-  const icon = btn?.querySelector("i");
+function setToggleIcon(button, theme) {
+  const icon = button?.querySelector("i");
   if (!icon) return;
 
-  // bootstrap-icons
-  icon.classList.toggle("bi-moon-stars", theme !== "dark");
+  icon.classList.toggle("bi-moon-stars", theme === "light");
   icon.classList.toggle("bi-sun", theme === "dark");
 }
 
 function initThemeToggles() {
-  const desktopBtn = document.getElementById("themeToggle");
-  const mobileBtn = document.getElementById("themeToggleMobile");
+  const buttons = [
+    document.getElementById("themeToggle"),
+    document.getElementById("themeToggleMobile")
+  ].filter(Boolean);
 
-  const applyIcons = () => {
-    const t = getTheme();
-    setToggleIcon(desktopBtn, t);
-    setToggleIcon(mobileBtn, t);
-  };
-
+  const sync = () => buttons.forEach((button) => setToggleIcon(button, getTheme("dark")));
   const toggle = () => {
-    const next = getTheme() === "dark" ? "light" : "dark";
-    setTheme(next);
-    applyIcons();
+    setTheme(getTheme("dark") === "dark" ? "light" : "dark");
+    sync();
   };
 
-  desktopBtn?.addEventListener("click", toggle);
-  mobileBtn?.addEventListener("click", toggle);
-
-  applyIcons();
+  buttons.forEach((button) => button.addEventListener("click", toggle));
+  sync();
 }
 
 function initMobileMenu() {
-  const btn = document.getElementById("menuToggle");
+  const button = document.getElementById("menuToggle");
   const menu = document.getElementById("mobileMenu");
-  if (!btn || !menu) return;
+  if (!button || !menu) return;
 
-  const icon = btn.querySelector("i");
-
-  const close = () => {
-    menu.hidden = true;
-    btn.setAttribute("aria-expanded", "false");
-    btn.setAttribute("aria-label", "Abrir menu");
-    icon?.classList.remove("bi-x");
-    icon?.classList.add("bi-list");
+  const icon = button.querySelector("i");
+  const setOpen = (isOpen) => {
+    menu.hidden = !isOpen;
+    button.setAttribute("aria-expanded", String(isOpen));
+    button.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    icon?.classList.toggle("bi-list", !isOpen);
+    icon?.classList.toggle("bi-x-lg", isOpen);
   };
 
-  const open = () => {
-    menu.hidden = false;
-    btn.setAttribute("aria-expanded", "true");
-    btn.setAttribute("aria-label", "Fechar menu");
-    icon?.classList.remove("bi-list");
-    icon?.classList.add("bi-x");
-  };
-
-  btn.addEventListener("click", () => {
-    const isOpen = btn.getAttribute("aria-expanded") === "true";
-    isOpen ? close() : open();
+  button.addEventListener("click", () => setOpen(button.getAttribute("aria-expanded") !== "true"));
+  menu.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
   });
-
-  // Close menu when clicking a link
-  menu.addEventListener("click", (e) => {
-    const a = e.target.closest("a");
-    if (a) close();
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setOpen(false);
   });
-
-  // Close on Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
-  });
-
-  // Close on resize to desktop
   window.addEventListener("resize", () => {
-    if (window.innerWidth >= 860) close();
+    if (window.innerWidth >= 880) setOpen(false);
   });
 }
 
 function init() {
-  initTheme("light");
+  initTheme("dark");
   initThemeToggles();
   initMobileMenu();
+  initProjectOverlay();
+  initRevealAnimations();
+  initInterestCarousel();
+  initExperienceField();
+  initCopyEmail();
 }
 
 document.addEventListener("DOMContentLoaded", init);

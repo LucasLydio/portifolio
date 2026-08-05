@@ -2,72 +2,187 @@
 layout: null
 ---
 <!doctype html>
-<html lang="pt-BR">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{{ site.title }}</title>
+    <title>{{ site.title }} | {{ site.author.role }}</title>
     <meta name="description" content="{{ site.description }}" />
+    <meta name="theme-color" content="#090b0a" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
-    
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-
-
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     {% include "header.html" %}
 
-    <main class="container">
-
-      <section class="typing-section">
-        <div class="typing-container">
-          <h2 class="typing-text">3+ years of experience in software development...</h2>
-        </div>
-      </section>
-      
-      <section class="hero" id="top">
+    <main id="main-content">
+      <section class="hero container" id="top">
         {% include "photo.html" %}
       </section>
 
-      <section class="section" id="projects">
-        <div class="section__head">
-          <h2>Projects</h2>
-          <p>A selection of featured projects and experiments that showcase my development philosophy.</p>
+      <section class="impact container reveal" aria-label="Engineering impact">
+        {% for metric in site.metrics %}
+          <div class="impact__item">
+            <strong>{{ metric.value }}</strong>
+            <span>{{ metric.label }}</span>
+          </div>
+        {% endfor %}
+      </section>
+
+      <section class="section container" id="experience">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <span class="section__eyebrow">Professional experience</span>
+            <h2>From operations to full-stack ownership.</h2>
+          </div>
+          <p>
+            Five years inside production environments shaped how I build software: understand the system,
+            trace the failure, communicate clearly, and leave the workflow stronger.
+          </p>
         </div>
 
-        <div class="grid-container">
-          {% for p in projects %}
-            {% include "project-card.html" %}
+        <div class="career" aria-label="Career timeline">
+          {% for job in site.experience %}
+            <article class="career__item reveal">
+              <div class="career__nav"> 
+                <div class="career__rail" aria-hidden="true">
+                  <span>0{{ forloop.index }}</span>
+                </div>
+                <div class="career__heading">
+                  <p class="career__period">{{ job.period }}</p>
+                  <h3>{{ job.role }}</h3>
+                  <p class="career__company">{{ job.company }}</p>
+                </div>
+              </div>
+              <div class="career__body">
+                <p>{{ job.summary }}</p>
+                <ul>
+                  {% for highlight in job.highlights %}
+                    <li>{{ highlight }}</li>
+                  {% endfor %}
+                </ul>
+                <div class="tech-line" aria-label="Technologies used">
+                  {% for tech in job.stack %}<span>{{ tech }}</span>{% endfor %}
+                </div>
+              </div>
+            </article>
           {% endfor %}
         </div>
       </section>
 
-      <section class="section" id="about">
-        <div class="section__head">
-          <h2>About</h2>
-            <p>
-              I specialize in crafting clean interfaces, reusable components, and robust, well-modeled backends. 
-              My focus is on delivering projects defined by visual consistency, architectural clarity, 
-              and highly maintainable code.
-            </p>
+      <section class="interest-band" id="interests" aria-labelledby="interests-title">
+        <div class="interest-band__inner container reveal">
+          <div class="interest-band__intro">
+            <span class="section__eyebrow section__eyebrow--dark">Current interests</span>
+            <h2 id="interests-title">What I want to explore deeper.</h2>
+          </div>
+
+          <div class="interest-carousel" data-carousel role="region" aria-roledescription="carousel" aria-label="Engineering interests">
+            <div class="interest-carousel__viewport" aria-live="polite">
+              {% for interest in site.interests %}
+                <article class="interest-slide" data-slide {% if forloop.index0 != 0 %}hidden{% endif %}>
+                  <span class="interest-slide__index">0{{ forloop.index }}</span>
+                  <div>
+                    <h3>{{ interest.title }}</h3>
+                    <p>{{ interest.description }}</p>
+                  </div>
+                </article>
+              {% endfor %}
+            </div>
+
+            <div class="carousel-controls">
+              <p class="carousel-status"><span data-current>01</span> / 04</p>
+              <div class="carousel-controls__buttons">
+                <button class="icon-control" type="button" data-carousel-prev aria-label="Previous interest" title="Previous interest">
+                  <i class="bi bi-arrow-left" aria-hidden="true"></i>
+                </button>
+                <button class="icon-control" type="button" data-carousel-pause aria-label="Pause carousel" title="Pause carousel">
+                  <i class="bi bi-pause-fill" aria-hidden="true"></i>
+                </button>
+                <button class="icon-control" type="button" data-carousel-next aria-label="Next interest" title="Next interest">
+                  <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section class="section container" id="projects">
+        <div class="section__head section__head--split reveal">
+          <div>
+            <span class="section__eyebrow">Selected work</span>
+            <h2>Systems, not decoration.</h2>
+          </div>
+          <p>
+            Work I can discuss through architecture, tradeoffs, debugging, and the decisions behind the interface.
+          </p>
+        </div>
+
+        <div class="project-list">
+          {% for p in projects %}
+            {% include "project-card.html" %}
+          {% endfor %}
+        </div>
+
+        <div id="imageOverlay" class="overlay" aria-hidden="true">
+          <button class="close-overlay" type="button" aria-label="Close image preview" title="Close preview">
+            <i class="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
+          <div class="overlay-img" role="dialog" aria-modal="true" aria-label="Project image preview">
+            <img id="overlayImg" src="" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section expertise container" id="skills">
+        <div class="section__head reveal">
+          <span class="section__eyebrow">Engineering toolkit</span>
+          <h2>Capabilities built through delivery.</h2>
+        </div>
+
+        <div class="expertise__list">
+          {% for group in site.skills %}
+            <article class="expertise__row reveal">
+              <span class="expertise__index">0{{ forloop.index }}</span>
+              <div>
+                <h3>{{ group.group }}</h3>
+                <p>{{ group.description }}</p>
+              </div>
+              <ul aria-label="{{ group.group }} technologies">
+                {% for item in group.items %}<li>{{ item }}</li>{% endfor %}
+              </ul>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <section class="section profile-note container reveal" id="about">
+        <div>
+          <span class="section__eyebrow">Background</span>
+          <h2>Engineering informed by real operations.</h2>
+        </div>
+        <p>
+          I began close to users, incidents, networks, and support queues before moving into full-stack development.
+          That path gave me a practical view of reliability: software is successful when people can depend on it.
+        </p>
+        <dl class="profile-note__details">
+          <div><dt>Education</dt><dd>{{ site.education.course }}</dd></div>
+          <div><dt>Institution</dt><dd>{{ site.education.school }} / {{ site.education.status }}</dd></div>
+          <div><dt>Location</dt><dd>{{ site.author.location }}</dd></div>
+        </dl>
       </section>
     </main>
 
     {% include "footer.html" %}
-
+    <div class="toast" data-copy-status role="status" aria-live="polite"></div>
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

@@ -1,70 +1,32 @@
 :root {
-  /* --- Color Palette --- */
-  --clr-bg: #f6f2e5cb;        /* Old Lace - Warm Neutral */
-  --clr-bg-alt: #e8f1f2;    /* Alice Blue - Cool Neutral */
-  --clr-surface: #ffffff;
+  color-scheme: dark;
 
-  --clr-text-main: #241104; /* Coffee Bean */
-  --clr-text-muted: #5a5a5a;
+  --clr-bg: #090b0a;
+  --clr-bg-alt: #111411;
+  --clr-surface: #161a17;
+  --clr-surface-raised: #1d221e;
+  --clr-text-main: #f2f5f2;
+  --clr-text-muted: #a5ada6;
+  --clr-text-faint: #747d76;
+  --clr-signal: #55f28a;
+  --clr-signal-ink: #071109;
+  --clr-accent: #ff7a59;
+  --clr-cool: #a9b7ff;
+  --border-color: rgba(242, 245, 242, 0.15);
+  --border-strong: rgba(242, 245, 242, 0.28);
 
-  --border-color: #5a5a5a4b;
+  --page-gutter: clamp(1rem, 4vw, 2rem);
+  --section-space: 5.5rem;
+  --radius-sm: 4px;
+  --radius: 6px;
+  --shadow-lg: 0 28px 80px rgba(0, 0, 0, 0.32);
 
-  --clr-primary: #1e7a75;   /* Deep Ocean */
-  --clr-accent: #8d7160;    /* Faded Copper */
-
-  /* --- Spacing & Radius --- */
-  --p-xs: clamp(0.35rem, 1vw, 0.5rem);
-  --p-sm: clamp(0.5rem, 2vw, 0.75rem);
-  --p-md: clamp(1rem, 3vw, 1.5rem);
-  --p-lg: clamp(2rem, 5vw, 4rem);
-
-  --radius-sm: 10px;
-  --radius: 12px;
-  --radius-pill: 999px;
-
-  /* --- Shadows --- */
-  --shadow-sm: 0 2px 4px rgba(36, 17, 4, 0.05);
-  --shadow-md: 0 10px 25px -5px rgba(36, 17, 4, 0.1);
-  --shadow-btn: 0 4px 12px rgba(30, 122, 117, 0.3);
-
-  /* --- Fluid Typography --- */
-  --fs-h1: clamp(1.5rem, 8vw, 2.5rem);
-  --fs-h2: clamp(1.2rem, 6vw, 2rem);
-  --fs-h3: clamp(1rem, 4vw, 1.7rem);
-  --fs-p: clamp(.9rem, 1.1vw, 1rem);
-  --fs-label: 0.9rem;
-
-  /* --- Breakpoints (docs only) --- */
-  --tablet: 768px;
-  --desktop: 1024px;
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Manrope", system-ui, sans-serif;
 }
 
-/* 1) Hide the banner iframe (the top bar lives here) */
-iframe.goog-te-banner-frame,
-.goog-te-banner-frame {
-  display: none !important;
-  visibility: hidden !important;
-  height: 0 !important;
-  width: 0 !important;
-  border: 0 !important;
-}
-
-/* 2) Google sometimes pushes the body down */
-html, body {
-  top: 0 !important;
-  position: static !important;
-}
-
-/* 3) Hide tooltip + bubble UI */
-#goog-gt-tt,
-.goog-tooltip,
-.goog-tooltip:hover,
-.goog-te-balloon-frame {
-  display: none !important;
-}
-
-/* 4) Remove the highlight that can mess layout */
-.goog-text-highlight {
-  background: transparent !important;
-  box-shadow: none !important;
+@media (min-width: 760px) {
+  :root {
+    --section-space: 8rem;
+  }
 }

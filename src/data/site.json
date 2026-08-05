@@ -1,17 +1,107 @@
 {
-  "title": "Lucas Lydio — Portfolio",
-  "description": "Portfolio de desenvolvimento: projetos, skills e contato.",
+  "title": "Lucas Lydio",
+  "description": "Full Stack Software Engineer building enterprise web applications, REST APIs, and internal systems used by more than 3,000 people.",
   "author": {
     "name": "Lucas Lydio",
-    "role": "Full-stack Developer",
-    "location": "Brazil"
+    "role": "Full Stack Software Engineer",
+    "location": "Anapolis, GO, Brazil",
+    "summary": "I build and operate enterprise web applications, REST APIs, and internal platforms used by more than 3,000 people.",
+    "supporting": "My work sits across Angular interfaces, Node.js and TypeScript services, PostgreSQL data, integrations, and production troubleshooting."
   },
   "links": {
     "github": "https://github.com/LucasLydio",
     "linkedin": "https://www.linkedin.com/in/lucas-lydio-8231b436b",
-    "email": "lucaslydiotelecom@gmail.com"
+    "email": "lucaslydiodev26@gmail.com"
+  },
+  "metrics": [
+    {
+      "value": "3,000+",
+      "label": "internal users supported"
+    },
+    {
+      "value": "50+",
+      "label": "REST endpoints delivered"
+    },
+    {
+      "value": "25+",
+      "label": "Angular features shipped"
+    },
+    {
+      "value": "20+ / mo",
+      "label": "production issues resolved"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Full Stack Developer",
+      "company": "Brazilian Air Force",
+      "period": "May 2024 - Present",
+      "current": true,
+      "summary": "Developing and maintaining enterprise applications used across internal operations, from Angular workflows to Node.js services and PostgreSQL data.",
+      "highlights": [
+        "Built and maintained 50+ REST API endpoints supporting more than 3,000 internal users.",
+        "Delivered 25+ Angular features and enhancements that reduced manual work in operational workflows.",
+        "Own production investigation across SQL, API behavior, logs, integrations, and root-cause analysis.",
+        "Contribute through code reviews, technical planning, Docker environments, and GitHub Actions pipelines."
+      ],
+      "stack": ["Angular", "Node.js", "TypeScript", "PostgreSQL", "Docker", "CI/CD"]
+    },
+    {
+      "role": "Technical Support Specialist",
+      "company": "Brazilian Air Force",
+      "period": "Jan 2021 - May 2024",
+      "current": false,
+      "summary": "Built the operational foundation behind my engineering work: systematic debugging, service reliability, automation, and collaboration across development, network, and infrastructure teams.",
+      "highlights": [
+        "Resolved 500+ support tickets across VoIP, SIP, PBX, connectivity, and authentication environments.",
+        "Reduced average resolution time by approximately 30% through structured log analysis and troubleshooting.",
+        "Automated repetitive operations with Python and Bash scripts, improving support efficiency by approximately 25%.",
+        "Supported REST API integrations and configured 300+ accounts, extensions, and routing rules."
+      ],
+      "stack": ["Python", "Bash", "REST APIs", "SIP", "Logs", "Automation"]
+    }
+  ],
+  "interests": [
+    {
+      "title": "Reliable backend systems",
+      "description": "APIs, data flows, observability, and failure modes that hold up under real operational pressure."
+    },
+    {
+      "title": "Enterprise frontend architecture",
+      "description": "Angular and React interfaces that make complex workflows faster, clearer, and easier to maintain."
+    },
+    {
+      "title": "System integrations",
+      "description": "Secure communication between services, practical contracts, and debugging across system boundaries."
+    },
+    {
+      "title": "Automation that compounds",
+      "description": "CI/CD, scripts, and developer tooling that remove repeated work from teams and operations."
+    }
+  ],
+  "skills": [
+    {
+      "group": "Product interfaces",
+      "description": "Building maintainable enterprise workflows and responsive user interfaces.",
+      "items": ["Angular", "React", "TypeScript", "JavaScript", "HTML", "CSS"]
+    },
+    {
+      "group": "Services and data",
+      "description": "Designing APIs, integrations, business logic, and database-backed systems.",
+      "items": ["Node.js", "NestJS", "REST APIs", "PostgreSQL", "SQL", "Java / Spring Boot"]
+    },
+    {
+      "group": "Delivery and reliability",
+      "description": "Shipping consistently and investigating behavior in production environments.",
+      "items": ["Docker", "GitHub Actions", "CI/CD", "Jest", "Swagger", "Python"]
+    }
+  ],
+  "education": {
+    "course": "B.Sc. Software Engineering",
+    "school": "UniEVANGELICA",
+    "status": "Final semester"
   },
   "ui": {
-    "theme": "light"
+    "theme": "dark"
   }
 }

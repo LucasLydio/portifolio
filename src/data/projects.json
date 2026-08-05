@@ -1,19 +1,48 @@
 [
-{
+  {
+    "number": "01",
     "title": "Management Tasks",
-    "subtitle": "A clean way to organize tasks",
-    "description": "A high-performance platform featuring a sleek UI, real-time tasks and shared workspace.",
-    "stack": ["Angular", "Node.js", "Prisma", "SQL", "TypeScript", "Docker", "Bootstrap"],
-    "highlights": ["Secure Auth and Oauth", "Socket Real-Time Operations", "Dynamic Pagination", "Modular UI Components"],
+    "subtitle": "Full-stack workspace for shared task operations",
+    "summary": "A practical system for managing users, authentication, tasks, pagination, and collaborative workflows through a structured Angular and Node.js architecture.",
+    "role": "Product design and full-stack engineering",
+    "status": "Active build",
+    "stack": ["Angular", "Node.js", "TypeScript", "Prisma", "SQL", "Docker"],
+    "details": [
+      {
+        "label": "System",
+        "text": "Authentication, user management, task flows, pagination, and a workspace designed for repeated daily use."
+      },
+      {
+        "label": "Engineering focus",
+        "text": "Clear modules, practical relational modeling, predictable API contracts, and responsive operational screens."
+      }
+    ],
     "links": {
       "repo": "https://github.com/LucasLydio/management-platform.git",
       "live": ""
     },
     "image": {
       "src": "/assets/img/projects/management_tasks.PNG",
-      "alt": "Tasks"
-    },
-    "status": "in-progress",
-    "featured": true
+      "alt": "Management Tasks workspace showing the task management interface"
+    }
+  },
+  {
+    "number": "02",
+    "title": "Visual Pipeline",
+    "subtitle": "Web application for tracking processing pipelines",
+    "summary": "A focused interface for following pipeline state and operational progress, built around Angular, TypeScript, Node.js, and REST APIs.",
+    "role": "Full-stack engineering",
+    "status": "Case study in preparation",
+    "stack": ["Angular", "TypeScript", "Node.js", "REST APIs"],
+    "details": [
+      {
+        "label": "Problem space",
+        "text": "Make processing stages and status visible enough for teams to understand what is happening and where attention is needed."
+      }
+    ],
+    "links": {
+      "repo": "",
+      "live": ""
+    }
   }
 ]

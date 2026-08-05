@@ -1,38 +1,42 @@
-<section class="photo" id="photo" aria-label="Foto e stack">
-  <div class="photo__inner">
-    <div class="photo__frame">
-      <!-- Troque o src pelo nome real do seu arquivo -->
-      <img
-        class="photo__img"
-        src="/assets/img/selfie2.jpeg"
-        alt="Foto de Lucas Lydio"
-        loading="lazy"
-        decoding="async"
-      />
+<div class="profile-hero reveal" aria-labelledby="hero-title">
+  <canvas class="profile-hero__field" id="experienceField" aria-hidden="true"></canvas>
 
-      <!-- Floating icons (Devicon) -->
-      <span class="float-icon pos-1" aria-hidden="true"><i class="devicon-angularjs-plain"></i></span>
-      <span class="float-icon pos-2" aria-hidden="true"><i class="devicon-react-original"></i></span>
-      <span class="float-icon pos-3" aria-hidden="true"><i class="devicon-nodejs-plain"></i></span>
-      <span class="float-icon pos-4" aria-hidden="true"><i class="devicon-typescript-plain"></i></span>
-      <span class="float-icon pos-5" aria-hidden="true"><i class="devicon-postgresql-plain"></i></span>
-      <span class="float-icon pos-6" aria-hidden="true"><i class="devicon-docker-plain"></i></span>
-      <span class="float-icon pos-7" aria-hidden="true"><i class="devicon-git-plain"></i></span>
-      <span class="float-icon pos-8" aria-hidden="true"><i class="devicon-javascript-plain"></i></span>
-    </div>
+  <button class="motion-toggle" type="button" data-motion-toggle aria-label="Pause background motion" title="Pause background motion">
+    <i class="bi bi-pause-fill" aria-hidden="true"></i>
+  </button>
 
-    <div class="photo__copy card">
-      <h2>Hello, i'm {{ site.author.name }}</h2>
-      <p>
-        {{ site.author.role }} — My approach centers on crafting clean user interfaces, optimizing for performance, and building scalable, modular architectures.
-      </p>
+  <div class="profile-hero__copy">
+    <p class="hero-kicker"><span aria-hidden="true"></span>{{ site.author.location }}</p>
+    <h1 id="hero-title">
+      <span>{{ site.author.name }}</span>
+      <strong>{{ site.author.role }}</strong>
+    </h1>
+    <p class="hero-summary">{{ site.author.summary }}</p>
+    <p class="hero-supporting">{{ site.author.supporting }}</p>
 
-      <div class="photo__cta">
-        <a class="btn" href="#projects">See Projects</a>
-        {% if site.links.linkedin %}
-          <a class="btn btn--ghost" href="{{ site.links.linkedin }}" target="_blank" rel="noreferrer">LinkedIn</a>
-        {% endif %}
-      </div>
+    <div class="profile-hero__actions">
+      <a class="btn" href="#experience">
+        Explore experience
+        <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
+      </a>
+      <a class="btn btn--ghost" href="{{ site.links.github }}" target="_blank" rel="noreferrer">
+        <i class="bi bi-github" aria-hidden="true"></i>
+        GitHub
+      </a>
     </div>
   </div>
-</section>
+
+  <div class="profile-hero__portrait">
+    <div class="portrait-index" aria-hidden="true">01 / 05</div>
+    <img
+      src="/assets/img/selfie2.jpeg"
+      alt="Lucas Lydio, Full Stack Software Engineer"
+      decoding="async"
+      fetchpriority="high"
+    />
+    <p class="portrait-caption">
+      <span>Current focus</span>
+      Enterprise web systems / APIs / production reliability
+    </p>
+  </div>
+</div>

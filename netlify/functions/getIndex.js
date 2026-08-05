@@ -1,13 +1,6 @@
+import { Octokit } from "@octokit/rest";
 import { ok, serverError } from "./_shared/response.js";
 import { buildIndexPayload } from "./_shared/templates.js";
-
-import { Octokit } from "@octokit/rest";
-
-// Optional envs:
-// - GITHUB_TOKEN (recommended to avoid rate limit)
-// - GITHUB_USERNAME (to list public repos)
-// - PORTFOLIO_SITE_TITLE (optional)
-// - PORTFOLIO_AUTHOR (optional)
 
 function env(name, fallback = "") {
   return process.env[name] ?? fallback;
@@ -15,12 +8,15 @@ function env(name, fallback = "") {
 
 function getStaticSite() {
   return {
-    title: env("PORTFOLIO_SITE_TITLE", "Lucas Lydio — Portfolio"),
-    description: env("PORTFOLIO_SITE_DESC", "Portfolio de desenvolvimento: projetos, skills e contato."),
+    title: env("PORTFOLIO_SITE_TITLE", "Lucas Lydio"),
+    description: env(
+      "PORTFOLIO_SITE_DESC",
+      "Full Stack Software Engineer building enterprise web applications, REST APIs, and internal systems used by more than 3,000 people."
+    ),
     author: {
       name: env("PORTFOLIO_AUTHOR", "Lucas Lydio"),
-      role: env("PORTFOLIO_ROLE", "Full-stack Developer"),
-      location: env("PORTFOLIO_LOCATION", "Brazil"),
+      role: env("PORTFOLIO_ROLE", "Full Stack Software Engineer"),
+      location: env("PORTFOLIO_LOCATION", "Anapolis, GO, Brazil"),
     },
     links: {
       github: env("PORTFOLIO_GITHUB", ""),
@@ -37,7 +33,6 @@ async function fetchGithubRepos() {
   const token = env("GITHUB_TOKEN");
   const octokit = new Octokit(token ? { auth: token } : {});
 
-  // list public repos (paginated: first 30 by default; we request 100)
   const { data } = await octokit.repos.listForUser({
     username,
     per_page: 100,
@@ -45,40 +40,33 @@ async function fetchGithubRepos() {
     direction: "desc",
   });
 
-  // Map to “project-like” objects (simple + safe)
   return data
-    .filter((r) => !r.fork) // optional: ignore forks
-    .slice(0, 12) // keep it small
-    .map((r) => ({
-      title: r.name,
-      subtitle: r.language ? `Repo em ${r.language}` : "Repositório",
-      description: r.description || "Sem descrição ainda.",
-      stack: r.language ? [r.language] : [],
+    .filter((repo) => !repo.fork)
+    .slice(0, 12)
+    .map((repo) => ({
+      title: repo.name,
+      subtitle: repo.language ? `Repository in ${repo.language}` : "Repository",
+      description: repo.description || "No description yet.",
+      stack: repo.language ? [repo.language] : [],
       links: {
-        repo: r.html_url,
-        live: r.homepage || "",
+        repo: repo.html_url,
+        live: repo.homepage || "",
       },
       image: null,
       status: "public",
       featured: false,
       meta: {
-        stars: r.stargazers_count,
-        updatedAt: r.updated_at,
+        stars: repo.stargazers_count,
+        updatedAt: repo.updated_at,
       },
     }));
 }
 
 export const handler = async () => {
   try {
-    const site = getStaticSite();
-
-    // GitHub enrichment (optional)
     const githubProjects = await fetchGithubRepos();
-
-    // If you want, later we can also merge your src/data/projects.json
-    // into the response (via Supabase or manual duplication).
     const payload = buildIndexPayload({
-      site,
+      site: getStaticSite(),
       projects: githubProjects,
       meta: { source: githubProjects.length ? "github" : "static" },
     });

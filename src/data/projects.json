@@ -41,8 +41,12 @@
       }
     ],
     "links": {
-      "repo": "",
+      "repo": "https://github.com/LucasLydio/visual-pipeline.git",
       "live": ""
+    },
+    "image": {
+      "src": "/assets/img/projects/portfolio_vp_4.PNG",
+      "alt": "Visual Pipeline interface"
     }
   }
 ]

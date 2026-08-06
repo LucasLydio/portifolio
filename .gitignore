@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+
+Dockerfile
+docker-compose.yml
+visual-pipeline.yml

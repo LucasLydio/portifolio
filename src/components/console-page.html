@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@souhdev — Lucas Lydio | Developer portfolio</title>
+    <meta name="description" content="Meet Lucas Lydio, @souhdev. A playable portfolio of full-stack development, projects, and experience. Press start and explore." />
+    <meta name="theme-color" content="#f4f1e8" />
+    <link rel="icon" href="/assets/brand/souhdev-mark.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#console">Skip to the console</a>
+    <header class="page-header">
+      <a class="wordmark" href="/" aria-label="souhdev home"><img src="/assets/brand/souhdev-mark.svg" alt="" width="34" height="34" /><span>souhdev<span class="wordmark__dot">.</span></span></a>
+      <span class="header-note">A DEVELOPER'S LITTLE UNIVERSE</span>
+      <a class="outside-link" href="{{ site.links.github }}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+      <div class="intro"><p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> CODE. CREATE. PLAY.</p><h1>A little about me.<br class="mobile-break" /> A different way to explore.</h1></div>
+      <div class="console-stage">
+        <aside class="margin-note margin-note--left" aria-hidden="true"><span class="note-star">✳</span><p>same developer.<br />new adventure.</p><span class="note-line"></span></aside>
+        <section class="console" id="console" tabindex="-1" aria-label="Interactive portfolio console" aria-describedby="keyboard-help">
+          <div class="console__topline"><span class="hardware-brand">SOUH<span>DEV</span></span><span class="power"><span></span> POWER</span></div>
+          <div class="screen-bezel">
+            <div class="screen" id="game-screen">
+              <div class="screen-status" aria-hidden="true"><span>PLAYER 01 <span class="status-separator">/</span> LUCAS LYDIO</span><span class="battery"></span></div>
+              <section class="screen-view boot-view" data-view="boot" aria-labelledby="boot-title">
+                <div class="game-title"><span class="game-spark game-spark--one" aria-hidden="true">✦</span><p class="game-title__overline">WELCOME TO THE WORLD OF</p><h2 id="boot-title">souhdev<span>!</span></h2><p class="game-title__subtitle">FULL-STACK DEVELOPER</p><span class="game-spark game-spark--two" aria-hidden="true">✧</span></div>
+                <div class="guide"><img class="guide__portrait" src="/assets/img/lucas-pixel.png" alt="Pixel-art Lucas smiling and waving" width="128" height="128" fetchpriority="high" /><div class="speech-bubble"><p>Hey, I'm Lucas! <span aria-hidden="true">✦</span></p><p>Welcome to my corner of the internet. Ready to look around?</p></div></div>
+                <div class="start-prompt"><h3>Start the game?</h3><div class="choices" role="group" aria-label="Start the game?"><button class="choice is-selected" type="button" data-choice="yes" aria-pressed="true"><span class="choice-cursor" aria-hidden="true">▶</span> YES</button><button class="choice" type="button" data-choice="no" aria-pressed="false"><span class="choice-cursor" aria-hidden="true">▶</span> NO</button></div><p class="screen-hint">Choose with ← → <span>·</span> Press A to confirm</p></div>
+              </section>
+              <section class="screen-view menu-view" data-view="menu" hidden aria-labelledby="menu-title">
+                <p class="eyebrow">LEVEL 01 / GET TO KNOW ME</p><h2 id="menu-title" tabindex="-1">Choose your next stop.</h2>
+                <div class="menu-guide"><img src="/assets/img/lucas-pixel.png" alt="" width="70" height="70" /><p>A few things I've built, learned, and worked on. Pick a chapter!</p></div>
+                <div class="game-menu" role="group" aria-label="Portfolio chapters">
+                  <button type="button" class="menu-item is-selected" data-chapter="profile" aria-pressed="true"><span class="menu-item__number">01</span><span>Meet the developer<small>The person behind the pixels</small></span><span aria-hidden="true">↗</span></button>
+                  <button type="button" class="menu-item" data-chapter="projects" aria-pressed="false"><span class="menu-item__number">02</span><span>Project inventory<small>Things I've put into the world</small></span><span aria-hidden="true">↗</span></button>
+                  <button type="button" class="menu-item" data-chapter="skills" aria-pressed="false"><span class="menu-item__number">03</span><span>My toolkit<small>Skills, tools & experience</small></span><span aria-hidden="true">↗</span></button>
+                  <button type="button" class="menu-item" data-chapter="contact" aria-pressed="false"><span class="menu-item__number">04</span><span>Let's connect<small>Good conversations start here</small></span><span aria-hidden="true">↗</span></button>
+                </div><p class="screen-hint">↑ ↓ to explore <span>·</span> A to open <span>·</span> B to return</p>
+              </section>
+              <section class="screen-view reader-view" data-view="reader" hidden aria-label="Portfolio content">
+                <nav class="chapter-nav" aria-label="Portfolio sections"><button type="button" data-tab="profile" aria-current="page">Profile</button><button type="button" data-tab="projects">Projects</button><button type="button" data-tab="skills">Toolkit</button><button type="button" data-tab="contact">Contact</button></nav>
+                <div class="chapter-content" tabindex="0" aria-label="Scrollable portfolio content">
+                  <article data-panel="profile"><p class="eyebrow">01 / MEET THE DEVELOPER</p><h2 tabindex="-1">Lucas Lydio<span class="text-accent">.</span></h2><p class="profile-role">{{ site.author.role }} / @souhdev</p><p>{{ site.author.summary }}</p><p>{{ site.author.supporting }}</p><dl class="profile-stats">{% for metric in site.metrics limit: 3 %}<div><dt>{{ metric.value }}</dt><dd>{{ metric.label }}</dd></div>{% endfor %}</dl><p>I started in technical support, close to users and production systems. Today, I bring that practical perspective to full-stack development.</p><p class="detail-note">{{ site.author.location }}<br />{{ site.education.course }} · {{ site.education.school }}</p></article>
+                  <article data-panel="projects" hidden><p class="eyebrow">02 / PROJECT INVENTORY</p><h2 tabindex="-1">Built with purpose.</h2>{% for project in projects %}<section class="project-entry"><span class="detail-note">{{ project.number }} / {{ project.status }}</span><h3>{{ project.title }}</h3><p>{{ project.summary }}</p><p class="tech-list">{{ project.stack | join: ' · ' }}</p><a href="{{ project.links.repo }}" target="_blank" rel="noreferrer">Explore repository ↗</a></section>{% endfor %}</article>
+                  <article data-panel="skills" hidden><p class="eyebrow">03 / MY TOOLKIT</p><h2 tabindex="-1">Always learning.</h2>{% for group in site.skills %}<section class="skill-entry"><h3>{{ group.group }}</h3><p>{{ group.description }}</p><p class="tech-list">{{ group.items | join: ' · ' }}</p></section>{% endfor %}<h3 class="experience-title">Experience</h3>{% for job in site.experience %}<section class="skill-entry"><p class="detail-note">{{ job.period }}</p><h3>{{ job.role }}</h3><p>{{ job.company }}</p><p>{{ job.summary }}</p></section>{% endfor %}</article>
+                  <article data-panel="contact" hidden><p class="eyebrow">04 / LET'S CONNECT</p><h2 tabindex="-1">New connections.<br />New possibilities.</h2><p>Developer, tech team, or just curious? I'd love to hear what you're working on.</p><div class="contact-links"><a href="mailto:{{ site.links.email }}">Send an email <span aria-hidden="true">↗</span></a><a href="{{ site.links.linkedin }}" target="_blank" rel="noreferrer">Find me on LinkedIn <span aria-hidden="true">↗</span></a><a href="{{ site.links.github }}" target="_blank" rel="noreferrer">Explore my GitHub <span aria-hidden="true">↗</span></a></div><p class="detail-note">On social media, look for <strong>@souhdev</strong>.</p></article>
+                </div><p class="screen-hint" data-reader-hint>↑ ↓ to scroll <span>·</span> B to return to the menu</p>
+              </section>
+              <div class="screen-bottom" aria-hidden="true"><span>SOFTWARE, WITH A HUMAN SIDE.</span><span>© {{ 'now' | date: '%Y' }} SOUHDEV</span></div>
+            </div><div class="bezel-label"><span></span> PERSONAL PORTFOLIO SYSTEM <span></span></div>
+          </div>
+          <div class="console-hinge" aria-hidden="true"><span></span></div>
+          <div class="controls" aria-label="Console controls">
+            <div class="dpad-group"><div class="dpad" role="group" aria-label="Directional pad"><button class="dpad__up" type="button" data-control="up" aria-label="Move up">▲</button><button class="dpad__left" type="button" data-control="left" aria-label="Move left">◀</button><span class="dpad__center" aria-hidden="true"></span><button class="dpad__right" type="button" data-control="right" aria-label="Move right">▶</button><button class="dpad__down" type="button" data-control="down" aria-label="Move down">▼</button></div><span class="control-caption">EXPLORE</span></div>
+            <div class="center-controls"><p class="console-model">souh<span>boy</span><small>DEVELOPER EDITION</small></p><div class="system-buttons"><button type="button" data-control="select"><span></span>SELECT</button><button type="button" data-control="start"><span></span>START</button></div><div class="speaker" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div></div>
+            <div class="action-group"><div class="action-buttons"><button type="button" class="action-button action-button--b" data-control="back" aria-label="B: go back">B</button><button type="button" class="action-button action-button--a" data-control="confirm" aria-label="A: confirm selection">A</button></div><span class="control-caption"><span>B · BACK</span><span data-a-caption>A · CONFIRM</span></span></div>
+          </div><span class="console-screw console-screw--left" aria-hidden="true"></span><span class="console-screw console-screw--right" aria-hidden="true"></span>
+        </section>
+        <aside class="margin-note margin-note--right" aria-hidden="true"><span class="note-arrow">↙</span><p>yep, the buttons<br />actually work.</p><span class="note-squares">□ + ○</span></aside>
+      </div>
+      <div class="below-console"><p id="keyboard-help"><span class="keyboard-symbol" aria-hidden="true">⌨</span> Keyboard works too. <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd> move <span class="help-separator">/</span> <kbd>Enter</kbd> confirm <span class="help-separator">/</span> <kbd>Esc</kbd> back</p><button class="text-button" type="button" data-read-profile>Just here to read? Skip to my profile <span aria-hidden="true">↗</span></button></div>
+      <p class="sr-only" role="status" aria-live="polite" data-announcement></p>
+      <noscript><div class="no-script"><h2>Hi, I'm Lucas Lydio — @souhdev.</h2><p>{{ site.author.summary }}</p><p>The console needs JavaScript. You can still <a href="{{ site.links.github }}">explore my projects on GitHub</a>, <a href="{{ site.links.linkedin }}">view my LinkedIn profile</a>, or <a href="mailto:{{ site.links.email }}">send me an email</a>.</p></div></noscript>
+    </main>
+    <footer class="page-footer"><p>Lucas Lydio <span>/</span> <strong>@souhdev</strong></p><p>Built with curiosity. Played at your pace. <span aria-hidden="true">✦</span></p></footer>
+    <script type="module" src="/js/main.js"></script>
+  </body>
+</html>

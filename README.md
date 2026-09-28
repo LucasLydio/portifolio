@@ -1,5 +1,11 @@
 # Lucas Lydio - Portfolio
 
+The current UI is a handheld-console portfolio for **@souhdev**. Visitors can use
+the directional pad and A/B buttons, keyboard controls, or direct section buttons.
+Choosing **No** on the opening screen skips the game menu and opens the profile.
+The first visual direction and asset-generation prompt are recorded in
+[`docs/visual-identity.md`](docs/visual-identity.md).
+
 Portfolio for Lucas Lydio, a Full Stack Software Engineer with experience delivering enterprise web applications, REST APIs, integrations, and production support for systems used by more than 3,000 people.
 
 ## Profile represented on the site

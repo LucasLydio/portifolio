@@ -27,3 +27,6 @@ pnpm-debug.log*
 Dockerfile
 docker-compose.yml
 visual-pipeline.yml
+
+# Local developer / agent handoff
+/context.md

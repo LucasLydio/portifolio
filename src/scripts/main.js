@@ -6,6 +6,7 @@ const tabs = [...document.querySelectorAll('[data-tab]')];
 const panels = [...document.querySelectorAll('[data-panel]')];
 const contactLinks = [...document.querySelectorAll('[data-contact-link]')];
 const contactGrid = document.querySelector('.contact-grid');
+const farewellLinks = [...document.querySelectorAll('[data-farewell-link]')];
 const content = document.querySelector('.chapter-content');
 const announcement = document.querySelector('[data-announcement]');
 const aButton = document.querySelector('[data-control="confirm"]');
@@ -15,6 +16,7 @@ let selection = 0;
 let chapter = 'profile';
 let readingMode = false;
 let contactSelection = 0;
+let farewellSelection = 0;
 
 function announce(message) {
   announcement.textContent = message;
@@ -36,15 +38,22 @@ function renderContactSelection({ focus = false } = {}) {
   }
 }
 
+function renderFarewellSelection({ focus = false } = {}) {
+  farewellLinks.forEach((link, index) => link.classList.toggle('is-selected', index === farewellSelection));
+  if (focus) farewellLinks[farewellSelection]?.focus({ preventScroll: true });
+}
+
 function showView(next, focusTarget) {
   view = next;
   views.forEach((element) => { element.hidden = element.dataset.view !== next; });
   const isReader = view === 'reader';
+  const isFarewell = view === 'farewell';
   const isContact = isReader && chapter === 'contact';
-  document.querySelector('[data-a-caption]').textContent = isContact ? 'A · OPEN' : isReader ? 'A · MENU' : 'A · CONFIRM';
-  aButton.setAttribute('aria-label', isContact ? 'A: open selected contact channel' : isReader ? 'A: open portfolio menu' : 'A: confirm selection');
-  if (!isReader) renderSelection();
+  document.querySelector('[data-a-caption]').textContent = isContact || isFarewell ? 'A · OPEN' : isReader ? 'A · MENU' : 'A · CONFIRM';
+  aButton.setAttribute('aria-label', isContact || isFarewell ? 'A: open selected contact channel' : isReader ? 'A: open portfolio menu' : 'A: confirm selection');
+  if (view === 'boot' || view === 'menu') renderSelection();
   else if (isContact) renderContactSelection();
+  else if (isFarewell) renderFarewellSelection();
   focusTarget?.focus({ preventScroll: true });
 }
 
@@ -58,7 +67,13 @@ function showMenu() {
 function showBoot() {
   selection = 0;
   showView('boot', choices[0]);
-  announce('Start the game? Yes is selected. No opens the reading view.');
+  announce('Start the game? Yes is selected. No opens the farewell screen.');
+}
+
+function showFarewell() {
+  farewellSelection = 0;
+  showView('farewell', document.querySelector('#farewell-title'));
+  announce('See you later. LinkedIn selected. Use the directional pad to choose a contact icon, then press A to open. Press B to return.');
 }
 
 function openChapter(name) {
@@ -87,6 +102,13 @@ function readProfile() {
 }
 
 function move(direction) {
+  if (view === 'farewell') {
+    const offset = direction === 'up' || direction === 'left' ? -1 : 1;
+    farewellSelection = (farewellSelection + offset + farewellLinks.length) % farewellLinks.length;
+    renderFarewellSelection({ focus: true });
+    announce(`${farewellLinks[farewellSelection].dataset.contactLabel} selected. Press A to open.`);
+    return;
+  }
   if (view === 'reader') {
     if (chapter === 'contact') {
       const columns = getComputedStyle(contactGrid).gridTemplateColumns.split(' ').length;
@@ -128,9 +150,12 @@ function move(direction) {
 function confirm() {
   if (view === 'boot') {
     if (selection === 0) showMenu();
-    else readProfile();
+    else showFarewell();
   } else if (view === 'menu') {
     openChapter(chapters[selection].dataset.chapter);
+  } else if (view === 'farewell') {
+    announce(`Opening ${farewellLinks[farewellSelection].dataset.contactLabel}.`);
+    farewellLinks[farewellSelection].click();
   } else if (chapter === 'contact') {
     announce(`Opening ${contactLinks[contactSelection].dataset.contactLabel}.`);
     contactLinks[contactSelection].click();
@@ -141,11 +166,12 @@ function confirm() {
 
 function back() {
   if (view === 'reader' && !readingMode) showMenu();
+  else if (view === 'farewell') showBoot();
   else if (view === 'boot') {
     selection = 1;
     renderSelection();
     choices[1].focus({ preventScroll: true });
-    announce('No selected. Press A or Enter to read the profile directly.');
+    announce('No selected. Press A or Enter to say goodbye for now.');
   } else showBoot();
 }
 
@@ -173,6 +199,12 @@ contactLinks.forEach((link, index) => link.addEventListener('focus', () => {
   if (view === 'reader' && chapter === 'contact') {
     contactSelection = index;
     renderContactSelection();
+  }
+}));
+farewellLinks.forEach((link, index) => link.addEventListener('focus', () => {
+  if (view === 'farewell') {
+    farewellSelection = index;
+    renderFarewellSelection();
   }
 }));
 document.querySelectorAll('[data-control]').forEach((button) => button.addEventListener('click', () => control(button.dataset.control)));

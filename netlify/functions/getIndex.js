@@ -22,6 +22,7 @@ function getStaticSite() {
       github: env("PORTFOLIO_GITHUB", ""),
       linkedin: env("PORTFOLIO_LINKEDIN", ""),
       instagram: env("PORTFOLIO_INSTAGRAM", "https://www.instagram.com/souhdev/"),
+      whatsapp: env("PORTFOLIO_WHATSAPP", "https://wa.me/"),
       email: env("PORTFOLIO_EMAIL", ""),
     },
   };

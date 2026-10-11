@@ -14,6 +14,24 @@
 .battery::after { content: ""; position: absolute; width: 2px; height: 4px; right: -3px; top: 1.5px; background: var(--screen-ink); }
 .screen-view { flex: 1; min-height: 0; }
 .boot-view { display: flex; flex-direction: column; justify-content: space-evenly; }
+.farewell-view { position: relative; display: flex; flex-direction: column; padding: 18px 16px 8px; overflow: hidden; }
+.farewell-sparkles { position: absolute; inset: 10px 9px auto; display: flex; justify-content: space-between; align-items: center; color: var(--accent); font-family: var(--font-display); font-size: 15px; pointer-events: none; }
+.farewell-sparkles span:nth-child(2) { color: var(--brand-medium); transform: translateY(34px); }
+.farewell-sparkles span:nth-child(3) { transform: translateY(7px); }
+.farewell-sparkles span:nth-child(4) { color: var(--brand-dark); transform: translateY(42px); }
+.farewell-scene { position: relative; z-index: 1; display: flex; flex: 1; min-height: 0; align-items: center; justify-content: center; gap: 19px; }
+.farewell-scene > img { width: 112px; height: 124px; flex-shrink: 0; align-self: end; object-fit: contain; image-rendering: pixelated; border-bottom: 2px solid var(--screen-ink); }
+.farewell-message { position: relative; max-width: 310px; padding: 13px 15px; border: 2px solid var(--screen-ink); background: #faf8e9; box-shadow: 4px 4px 0 #75577f40; }
+.farewell-message::before { position: absolute; width: 12px; height: 12px; margin: 34px 0 0 -22px; transform: rotate(45deg); border-bottom: 2px solid var(--screen-ink); border-left: 2px solid var(--screen-ink); background: #faf8e9; content: ""; }
+.farewell-message .eyebrow { color: var(--accent-dark); font-size: 7px; }
+.farewell-message h2 { margin-top: 6px; color: var(--screen-ink); font-family: var(--font-display); font-size: 22px; line-height: 1.25; }
+.farewell-message > p:not(.eyebrow) { margin-top: 8px; font-size: 11px; line-height: 1.55; }
+.farewell-message strong { display: block; margin-top: 8px; color: var(--accent-dark); font-size: 9px; }
+.farewell-links { position: relative; z-index: 1; display: flex; justify-content: center; gap: 13px; padding-top: 7px; }
+.farewell-link { display: grid; place-items: center; width: 43px; height: 43px; border: 1px solid var(--screen-ink); background: #faf8e9; color: var(--accent-dark); text-decoration: none; box-shadow: 2px 2px 0 #33453622; transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+.farewell-link:hover, .farewell-link.is-selected { background: var(--screen-ink); color: var(--screen-bg); box-shadow: 3px 3px 0 var(--accent); transform: translateY(-2px); }
+.farewell-link svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; }
+.farewell-view > .screen-hint { position: relative; z-index: 1; margin-top: 8px; }
 .game-title { position: relative; text-align: center; padding-top: 5px; }
 .game-title__overline { font-size: 8px; letter-spacing: 2px; }
 .game-title h2 { font-family: var(--font-display); font-size: 48px; line-height: 1.25; font-weight: 700; letter-spacing: -3px; text-shadow: 2px 3px 0 #33453622; }
@@ -152,6 +170,15 @@
   .game-spark { font-size: 15px; }.game-spark--two { font-size: 22px; bottom: -8px; }
   .guide { gap: 8px; }
   .guide__portrait { width: 76px; height: 100px; }
+  .farewell-view { padding: 13px 7px 7px; }
+  .farewell-scene { gap: 9px; }
+  .farewell-scene > img { width: 76px; height: 102px; }
+  .farewell-message { padding: 10px; }
+  .farewell-message h2 { font-size: 17px; }
+  .farewell-message > p:not(.eyebrow) { font-size: 9px; line-height: 1.45; }
+  .farewell-message strong { font-size: 8px; }
+  .farewell-link { width: 39px; height: 39px; }
+  .farewell-link svg { width: 22px; height: 22px; }
   .speech-bubble { padding: 9px; }
   .speech-bubble p:first-child { font-size: 11px; }.speech-bubble p:last-child { font-size: 11px; line-height: 1.5; }
   .start-prompt h3 { font-size: 12px; }
@@ -188,6 +215,13 @@
 @media (max-width: 360px) {
   .screen { padding-inline: 8px; }.game-title h2 { font-size: 31px; }
   .guide__portrait { width: 61px; }.speech-bubble { padding: 8px; }
+  .farewell-scene { flex-direction: column; justify-content: center; gap: 5px; }
+  .farewell-scene > img { width: 61px; height: 70px; align-self: center; }
+  .farewell-message { max-width: 245px; text-align: center; }
+  .farewell-message::before { display: none; }
+  .farewell-message > p:not(.eyebrow) { font-size: 8px; }
+  .farewell-links { gap: 8px; }
+  .farewell-link { width: 36px; height: 36px; }
   .action-buttons { gap: 6px; }.action-button { width: 38px; height: 38px; }
   .dpad { grid-template-columns: repeat(3, 29px); grid-template-rows: repeat(3, 29px); }
   .console-model { font-size: 15px; }

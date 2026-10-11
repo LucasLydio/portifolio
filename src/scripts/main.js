@@ -5,6 +5,7 @@ const chapters = [...document.querySelectorAll('[data-chapter]')];
 const tabs = [...document.querySelectorAll('[data-tab]')];
 const panels = [...document.querySelectorAll('[data-panel]')];
 const contactLinks = [...document.querySelectorAll('[data-contact-link]')];
+const contactGrid = document.querySelector('.contact-grid');
 const content = document.querySelector('.chapter-content');
 const announcement = document.querySelector('[data-announcement]');
 const aButton = document.querySelector('[data-control="confirm"]');
@@ -88,12 +89,18 @@ function readProfile() {
 function move(direction) {
   if (view === 'reader') {
     if (chapter === 'contact') {
-      if (direction === 'left' || direction === 'right') {
-        const rowStart = Math.floor(contactSelection / 2) * 2;
-        const column = contactSelection % 2;
-        contactSelection = rowStart + (column + (direction === 'left' ? -1 : 1) + 2) % 2;
+      const columns = getComputedStyle(contactGrid).gridTemplateColumns.split(' ').length;
+      if (columns === 1) {
+        const offset = direction === 'up' || direction === 'left' ? -1 : 1;
+        contactSelection = (contactSelection + offset + contactLinks.length) % contactLinks.length;
+      } else if (direction === 'left' || direction === 'right') {
+        const rowStart = Math.floor(contactSelection / columns) * columns;
+        const column = contactSelection % columns;
+        const offset = direction === 'left' ? -1 : 1;
+        contactSelection = rowStart + (column + offset + columns) % columns;
       } else {
-        contactSelection = (contactSelection + 2) % contactLinks.length;
+        const offset = direction === 'up' ? -columns : columns;
+        contactSelection = (contactSelection + offset + contactLinks.length) % contactLinks.length;
       }
       renderContactSelection({ focus: true });
       announce(`${contactLinks[contactSelection].dataset.contactLabel} selected. Press A to open.`);

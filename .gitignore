@@ -30,3 +30,6 @@ visual-pipeline.yml
 
 # Local developer / agent handoff
 /context.md
+
+# Personal LinkedIn artwork (not part of the website)
+/local-assets/linkedin/

@@ -108,9 +108,18 @@
 .project-entry a { display: inline-block; font-size: 11px; font-weight: 700; padding-block: 12px 5px; }
 .reader-view > .screen-hint { flex-shrink: 0; padding-bottom: 8px; }
 .experience-title { padding-top: 12px; }
-.contact-links { display: grid; gap: 8px; margin-block: 18px; }
-.contact-links a { display: flex; justify-content: space-between; padding: 10px 12px; border: 1px solid #33453650; font-size: 11px; text-decoration: none; }
-.contact-links a:hover { background: var(--screen-ink); color: var(--screen-bg); }
+.contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin-block: 13px 9px; }
+.contact-option { position: relative; display: grid; grid-template-columns: 38px minmax(0, 1fr) 20px; align-items: center; gap: 8px; min-height: 64px; padding: 7px; border: 1px solid #33453650; background: #faf8e966; color: var(--screen-ink); text-decoration: none; box-shadow: 2px 2px 0 transparent; }
+.contact-option:hover, .contact-option.is-selected { border-color: var(--screen-ink); background: var(--screen-ink); color: var(--screen-bg); box-shadow: 2px 2px 0 var(--accent); }
+.contact-option__icon { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid currentColor; background: var(--screen-bg); color: var(--accent-dark); }
+.contact-option.is-selected .contact-option__icon, .contact-option:hover .contact-option__icon { background: var(--accent); color: #faf8e9; border-color: var(--accent-light); }
+.contact-option__icon svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: square; stroke-linejoin: miter; }
+.contact-option__copy { min-width: 0; }
+.contact-option__copy strong, .contact-option__copy small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.contact-option__copy strong { font-family: var(--font-display); font-size: 14px; font-weight: 400; }
+.contact-option__copy small { margin-top: 3px; font-size: 9px; }
+.contact-option__action { display: grid; place-items: center; width: 18px; height: 18px; border: 1px solid currentColor; border-radius: 50%; font-family: var(--font-display); font-size: 7px; opacity: 0; }
+.contact-option.is-selected .contact-option__action { opacity: 1; }
 @media (max-width: 700px) {
   .console-stage { padding-inline: 14px; }
   .console { padding: 0 14px 16px; border-radius: 22px 22px 36px 36px; }
@@ -161,6 +170,12 @@
   .chapter-nav > button { font-size: 9px; }
   .chapter-content p { font-size: 13px; }
   .profile-stats dt { font-size: 14px; }.profile-stats dd { font-size: 8px; }
+  .contact-option { grid-template-columns: 32px minmax(0, 1fr) 16px; gap: 5px; min-height: 57px; padding: 5px; }
+  .contact-option__icon { width: 32px; height: 32px; }
+  .contact-option__icon svg { width: 21px; height: 21px; }
+  .contact-option__copy strong { font-size: 10px; }
+  .contact-option__copy small { font-size: 9px; }
+  .contact-option__action { width: 16px; height: 16px; font-size: 6px; }
 }
 @media (max-width: 360px) {
   .screen { padding-inline: 8px; }.game-title h2 { font-size: 31px; }
@@ -168,4 +183,8 @@
   .action-buttons { gap: 6px; }.action-button { width: 38px; height: 38px; }
   .dpad { grid-template-columns: repeat(3, 29px); grid-template-rows: repeat(3, 29px); }
   .console-model { font-size: 15px; }
+  .contact-option { grid-template-columns: 27px minmax(0, 1fr); min-height: 51px; }
+  .contact-option__icon { width: 27px; height: 27px; }
+  .contact-option__icon svg { width: 18px; height: 18px; }
+  .contact-option__action { display: none; }
 }

@@ -4,6 +4,7 @@ const choices = [...document.querySelectorAll('[data-choice]')];
 const chapters = [...document.querySelectorAll('[data-chapter]')];
 const tabs = [...document.querySelectorAll('[data-tab]')];
 const panels = [...document.querySelectorAll('[data-panel]')];
+const contactLinks = [...document.querySelectorAll('[data-contact-link]')];
 const content = document.querySelector('.chapter-content');
 const announcement = document.querySelector('[data-announcement]');
 const aButton = document.querySelector('[data-control="confirm"]');
@@ -12,6 +13,7 @@ let view = 'boot';
 let selection = 0;
 let chapter = 'profile';
 let readingMode = false;
+let contactSelection = 0;
 
 function announce(message) {
   announcement.textContent = message;
@@ -25,13 +27,23 @@ function renderSelection() {
   });
 }
 
+function renderContactSelection({ focus = false } = {}) {
+  contactLinks.forEach((link, index) => link.classList.toggle('is-selected', index === contactSelection));
+  if (focus) {
+    contactLinks[contactSelection]?.focus({ preventScroll: true });
+    contactLinks[contactSelection]?.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+  }
+}
+
 function showView(next, focusTarget) {
   view = next;
   views.forEach((element) => { element.hidden = element.dataset.view !== next; });
   const isReader = view === 'reader';
-  document.querySelector('[data-a-caption]').textContent = isReader ? 'A · MENU' : 'A · CONFIRM';
-  aButton.setAttribute('aria-label', isReader ? 'A: open portfolio menu' : 'A: confirm selection');
+  const isContact = isReader && chapter === 'contact';
+  document.querySelector('[data-a-caption]').textContent = isContact ? 'A · OPEN' : isReader ? 'A · MENU' : 'A · CONFIRM';
+  aButton.setAttribute('aria-label', isContact ? 'A: open selected contact channel' : isReader ? 'A: open portfolio menu' : 'A: confirm selection');
   if (!isReader) renderSelection();
+  else if (isContact) renderContactSelection();
   focusTarget?.focus({ preventScroll: true });
 }
 
@@ -50,6 +62,7 @@ function showBoot() {
 
 function openChapter(name) {
   chapter = name;
+  if (name === 'contact') contactSelection = 0;
   panels.forEach((panel) => { panel.hidden = panel.dataset.panel !== name; });
   tabs.forEach((tab) => {
     if (tab.dataset.tab === name) tab.setAttribute('aria-current', 'page');
@@ -57,10 +70,14 @@ function openChapter(name) {
   });
   showView('reader', panels.find((panel) => panel.dataset.panel === name).querySelector('h2'));
   content.scrollTop = 0;
-  document.querySelector('[data-reader-hint]').textContent = readingMode
-    ? 'Read at your pace. Choose a section above. B to return.'
-    : 'Up / down to scroll · B to return to the menu';
-  announce(`${tabs.find((tab) => tab.dataset.tab === name).textContent} opened. Use the section buttons or scroll to read.`);
+  document.querySelector('[data-reader-hint]').textContent = name === 'contact'
+    ? 'D-pad to choose · A to open · B to return'
+    : readingMode
+      ? 'Read at your pace. Choose a section above. B to return.'
+      : 'Up / down to scroll · B to return to the menu';
+  announce(name === 'contact'
+    ? 'Contact opened. Email selected. Use the directional pad to choose a channel, then press A to open.'
+    : `${tabs.find((tab) => tab.dataset.tab === name).textContent} opened. Use the section buttons or scroll to read.`);
 }
 
 function readProfile() {
@@ -70,6 +87,18 @@ function readProfile() {
 
 function move(direction) {
   if (view === 'reader') {
+    if (chapter === 'contact') {
+      if (direction === 'left' || direction === 'right') {
+        const rowStart = Math.floor(contactSelection / 2) * 2;
+        const column = contactSelection % 2;
+        contactSelection = rowStart + (column + (direction === 'left' ? -1 : 1) + 2) % 2;
+      } else {
+        contactSelection = (contactSelection + 2) % contactLinks.length;
+      }
+      renderContactSelection({ focus: true });
+      announce(`${contactLinks[contactSelection].dataset.contactLabel} selected. Press A to open.`);
+      return;
+    }
     if (direction === 'up' || direction === 'down') {
       content.scrollBy({ top: direction === 'up' ? -90 : 90, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
     } else {
@@ -95,6 +124,9 @@ function confirm() {
     else readProfile();
   } else if (view === 'menu') {
     openChapter(chapters[selection].dataset.chapter);
+  } else if (chapter === 'contact') {
+    announce(`Opening ${contactLinks[contactSelection].dataset.contactLabel}.`);
+    contactLinks[contactSelection].click();
   } else {
     showMenu();
   }
@@ -130,6 +162,12 @@ chapters.forEach((item, index) => {
   item.addEventListener('click', () => { selection = index; openChapter(item.dataset.chapter); });
 });
 tabs.forEach((tab) => tab.addEventListener('click', () => openChapter(tab.dataset.tab)));
+contactLinks.forEach((link, index) => link.addEventListener('focus', () => {
+  if (view === 'reader' && chapter === 'contact') {
+    contactSelection = index;
+    renderContactSelection();
+  }
+}));
 document.querySelectorAll('[data-control]').forEach((button) => button.addEventListener('click', () => control(button.dataset.control)));
 document.querySelector('[data-read-profile]').addEventListener('click', readProfile);
 

@@ -2,7 +2,7 @@ name: Generate custom streak SVG
 
 on:
   schedule:
-    - cron: "0 6 * * *" # daily at 06:00 UTC
+    - cron: "0 6 1 * *" # Uma vez por mês (todo dia 1º às 06:00 UTC)
   workflow_dispatch:
 
 permissions:

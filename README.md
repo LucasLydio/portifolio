@@ -22,7 +22,7 @@ npm install
 npm run dev
 ```
 
-Eleventy serves the site at `http://localhost:8080/` by default.
+Eleventy serves the site at `http://localhost:8081/`.
 
 ## Production build
 

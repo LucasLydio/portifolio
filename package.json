@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "eleventy --serve --quiet",
+    "dev": "eleventy --serve --quiet --port=8081",
     "build": "eleventy"
   },
   "devDependencies": {
